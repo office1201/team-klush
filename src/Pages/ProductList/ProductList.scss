@@ -1,0 +1,95 @@
+@import '../../Styles/variable.scss';
+
+.productDetail {
+  .subVisual {
+    background-image: url('https://images.unsplash.com/photo-1470100568678-c2bc2ba890c1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80');
+    // background-color: blueviolet;
+    width: 100vw;
+    height: 500px;
+
+    flex-direction: column;
+    @extend %flex-all-center;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+
+    .mainTxt {
+      font-size: 68px;
+      color: black;
+    }
+
+    .subTxt {
+      font-size: 26px;
+      color: black;
+    }
+  }
+
+  .view {
+    padding-bottom: 100px;
+
+    .headBox {
+      width: 1180px;
+      margin: 0 auto;
+
+      .headName {
+        width: 100%;
+        margin-top: 70px;
+        border-bottom: 4px solid black;
+
+        h1 {
+          font-size: 28px;
+          padding-bottom: 15px;
+        }
+      }
+      ul {
+        height: 60px;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+
+        li {
+          display: inline-block;
+          padding: 10px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    section {
+      // @extend %flex-center;
+      width: 1180px;
+      margin: 0 auto;
+      // display: flex;
+      // justify-content: center;
+
+      ul {
+        width: 100%;
+        // border: 1px solid black;
+        margin: 0 auto;
+        display: grid;
+        // grid-template-columns: 300px 300px 300px 300px;
+        grid-template-columns: repeat(4, 24%);
+        grid-column-gap: 10px;
+        grid-row-gap: 30px;
+        justify-content: center;
+
+        // li {
+        //   width: 100%;
+        //   height: 397px;
+        //   padding-bottom: 5px 30px 5px 5px;
+        //   // border: 1px solid black;
+        //   @extend %flex-all-center;
+        //   flex-flow: column;
+        // }
+      }
+    }
+
+    .pageNation {
+      padding-top: 40px;
+      @extend %flex-all-center;
+      li {
+        padding: 4px 10px;
+      }
+    }
+  }
+}

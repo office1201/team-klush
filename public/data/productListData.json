@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "로즈골드",
+    "hashtag": "아로마틱 꽃의 선셋",
+    "price": 23000,
+    "imgSrc": "https://res.cloudinary.com/lush/image/upload/s--1ksLaRc2--/c_fill,h_340,q_jpegmini,w_340/v1/lush_content/products/main/2021/01/web_rose_gold_bath_bomb_side_2021.jpg?itok=1YW9BiK9",
+    "isNew": true,
+    "isBest": true
+  },
+  {
+    "id": 2,
+    "title": "그루비카인드오브러브",
+    "hashtag": "로즈우드와일랑일랑",
+    "price": 19000,
+    "imgSrc": "https://res.cloudinary.com/lush/image/upload/s--rhxp2OEi--/c_fill,h_340,q_jpegmini,w_340/v1/lush_content/products/main/2019/01/web_groovy_-kind_of_love_bath_bomb_harajuku_shop_2018.jpg?itok=K75n0uA6",
+    "isNew": false,
+    "isBest": true
+  },
+  {
+    "id": 3,
+    "title": "이클베이비봇",
+    "hashtag": "로봇과 함께하는 입욕",
+    "price": 6000,
+    "imgSrc": "https://res.cloudinary.com/lush/image/upload/s--vC_MR6TN--/c_fill,h_200,q_jpegmini,w_200/v1/products/main/3083.jpg?itok=ECMcrkKR",
+    "isNew": false,
+    "isBest": true
+  }
+  {
+    "title": "아보 굿 이스터",
+    "hashtag": "솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "imgSrc": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "isNew": true,
+    "isBest": true
+  }
+]
