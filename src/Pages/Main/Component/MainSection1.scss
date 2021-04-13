@@ -1,0 +1,38 @@
+section {
+  margin: 0;
+  padding: 70px 0;
+  width: 100%;
+  height: auto;
+}
+
+section:nth-child(1) {
+  .main1Wrapper {
+    margin: 0 400px;
+  }
+
+  h2 {
+    margin-bottom: 50px;
+    font-size: 35px;
+    font-family: 'Gothic A1', sans-serif;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      margin-right: 50px;
+      text-align: center;
+
+      img {
+        width: 250px;
+        height: 250px;
+      }
+
+      h3,
+      p {
+        margin-top: 10px;
+        font-family: 'Gothic A1', sans-serif;
+      }
+    }
+  }
+}
