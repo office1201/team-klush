@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
-// import PrdLists from './Component/PrdLists';
+import PrdLists from './Component/PrdLists';
 import '../../Styles/reset.scss';
 import '../../Styles/common.scss';
 import './ProductList.scss';
-import PrdLists from './Component/PrdLists';
 
 class ProductList extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      productLists: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('/data/productListData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          productLists: data,
+        });
+        // console.log(this.state.productLists);
+      });
   }
 
   render() {
+    const { productLists } = this.state;
+    console.log(productLists);
     return (
       <div>
         <div className="productDetail">
@@ -35,10 +49,10 @@ class ProductList extends Component {
             </div>
             <section>
               <ul>
-                {/* <PrdLists soaps={this.state} /> */}
-                <PrdLists />
-                <PrdLists />
-                <PrdLists />
+                {productLists &&
+                  productLists.map(product => {
+                    return <PrdLists key={product.id} product={product} />;
+                  })}
                 <PrdLists />
               </ul>
             </section>

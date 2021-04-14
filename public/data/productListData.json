@@ -1,19 +1,19 @@
 [
   {
     "id": 1,
-    "title": "로즈골드",
-    "hashtag": "아로마틱 꽃의 선셋",
-    "price": 23000,
-    "imgSrc": "https://res.cloudinary.com/lush/image/upload/s--1ksLaRc2--/c_fill,h_340,q_jpegmini,w_340/v1/lush_content/products/main/2021/01/web_rose_gold_bath_bomb_side_2021.jpg?itok=1YW9BiK9",
+    "title": "두비두밥 카스타드",
+    "hashtag": "부드러운 두유거품,상큼한오렌지",
+    "price": 14000,
+    "imgSrc": "https://res.cloudinary.com/lush/image/upload/s--YphnGEMx--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2020/06/web_rhubarb_and_custard_soap_2020.jpg?itok=luFXFMfW",
     "isNew": true,
     "isBest": true
   },
   {
     "id": 2,
-    "title": "그루비카인드오브러브",
-    "hashtag": "로즈우드와일랑일랑",
-    "price": 19000,
-    "imgSrc": "https://res.cloudinary.com/lush/image/upload/s--rhxp2OEi--/c_fill,h_340,q_jpegmini,w_340/v1/lush_content/products/main/2019/01/web_groovy_-kind_of_love_bath_bomb_harajuku_shop_2018.jpg?itok=K75n0uA6",
+    "title": "삼프텍",
+    "hashtag": "숲속에 온듯 청량한 향기",
+    "price": 11000,
+    "imgSrc": "https://res.cloudinary.com/lush/image/upload/s--WyeSC--S--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2020/06/web_outback_mate_soap_2020.jpg?itok=GqwXYzEr",
     "isNew": false,
     "isBest": true
   },
@@ -25,8 +25,9 @@
     "imgSrc": "https://res.cloudinary.com/lush/image/upload/s--vC_MR6TN--/c_fill,h_200,q_jpegmini,w_200/v1/products/main/3083.jpg?itok=ECMcrkKR",
     "isNew": false,
     "isBest": true
-  }
+  },
   {
+    "id": 4,
     "title": "아보 굿 이스터",
     "hashtag": "솝, 오래 쓸 수 있는",
     "price": 23000,
