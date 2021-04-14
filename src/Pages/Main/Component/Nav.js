@@ -5,14 +5,38 @@ import '../../../Styles/reset.scss';
 import '../../Main/Component/Nav.scss';
 
 class Nav extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isMouseover: false,
+    };
+  }
+
+  navMouseOver = () => {
+    this.setState({
+      isMouseover: true,
+    });
+  };
+
+  navMouseout = () => {
+    this.setState({
+      isMouseover: false,
+    });
+  };
+
   render() {
+    const { isMouseover } = this.state;
     return (
       <div>
         <nav>
           <h1>KLUSH</h1>
           <ul>
-            <li>제품</li>
-            <li>러쉬 소개</li>
+            <li onMouseOver={this.navMouseOver} onMouseOut={this.navMouseout}>
+              제품
+            </li>
+            <li onMouseOver={this.navMouseOver} onMouseOut={this.navMouseout}>
+              러쉬 소개
+            </li>
             <li>매장 안내</li>
             <li>스파</li>
             <li>이벤트</li>
@@ -30,7 +54,7 @@ class Nav extends Component {
             </li>
           </ul>
         </nav>
-        <div className="category">
+        <div className={isMouseover ? 'category' : 'notCategory'}>
           <div className="categoryContainer">
             <ul>
               <li>베스트</li>

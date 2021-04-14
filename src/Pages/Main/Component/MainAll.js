@@ -13,12 +13,6 @@ class MainSection extends Component {
     return (
       <main>
         <MainSection1 />
-        {/* <section>
-            <h2></h2>
-            <h3></h3>
-            <p></p>
-            <img src="" alt="" />
-          </section> */}
         <MainSection2 />
         <MainSection3 />
       </main>
