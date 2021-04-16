@@ -8,6 +8,7 @@ class Goods extends Component {
     super();
     this.state = {
       value: 1,
+      price: 15000,
     };
   }
 
@@ -29,15 +30,18 @@ class Goods extends Component {
   };
 
   minusValue = () => {
-    if (this.state.value < 2) {
+    const { value } = this.state;
+
+    if (value < 2) {
       return;
     }
     this.setState({
-      value: this.state.value - 1,
+      value: value - 1,
     });
   };
 
   render() {
+    const { value, price } = this.state;
     return (
       <div>
         <section className="Goods">
@@ -74,7 +78,7 @@ class Goods extends Component {
             <ul className="pwBox">
               <li>
                 <strong>판매가</strong>
-                <span className="price">&#8361; 19,000</span>
+                <span className="price">&#8361;{price.toLocaleString()}</span>
               </li>
               <li>
                 <strong>상품무게</strong>
@@ -99,7 +103,9 @@ class Goods extends Component {
             </ul>
             <div className="endPrice">
               <span className="totalTxt">총 합계 금액</span>
-              <span className="totalPrice">&#8361; 15,000</span>
+              <span className="totalPrice">
+                &#8361; {(price * value).toLocaleString()}
+              </span>
             </div>
             <div className="buyBtn">
               <a>
