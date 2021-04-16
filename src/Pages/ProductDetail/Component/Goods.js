@@ -31,7 +31,6 @@ class Goods extends Component {
 
   minusValue = () => {
     const { value } = this.state;
-
     if (value < 2) {
       return;
     }
@@ -78,7 +77,7 @@ class Goods extends Component {
             <ul className="pwBox">
               <li>
                 <strong>판매가</strong>
-                <span className="price">&#8361;{price.toLocaleString()}</span>
+                <span className="price">&#8361; 19,000</span>
               </li>
               <li>
                 <strong>상품무게</strong>
@@ -104,7 +103,7 @@ class Goods extends Component {
             <div className="endPrice">
               <span className="totalTxt">총 합계 금액</span>
               <span className="totalPrice">
-                &#8361; {(price * value).toLocaleString()}
+                &#8361; {`${(price * value).toLocaleString()}`}
               </span>
             </div>
             <div className="buyBtn">
