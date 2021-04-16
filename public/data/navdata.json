@@ -2,86 +2,93 @@
   "results": [
     {
       "id": 1,
-      "name": "제품",
-      "main_category": [
+      "name": "배쓰",
+      "sub_category": [
         {
           "id": 1,
-          "name": "샤워",
-          "sub_category": [
-            {
-              "id": 1,
-              "name": "솝"
-            },
-            {
-              "id": 2,
-              "name": "샤워젤&젤리"
-            },
-            {
-              "id": 5,
-              "name": "보디 컨디셔너"
-            },
-            {
-              "id": 6,
-              "name": "샤워밤"
-            },
-            {
-              "id": 7,
-              "name": "샤워 오일"
-            }
-          ]
+          "name": "배쓰 밤"
         },
         {
           "id": 2,
-          "name": "보디",
-          "sub_category": [
-            {
-              "id": 3,
-              "name": "클렌져"
-            },
-            {
-              "id": 4,
-              "name": "로션"
-            },
-            {
-              "id": 8,
-              "name": "핸드앤풋"
-            },
-            {
-              "id": 9,
-              "name": "마사지 바"
-            },
-            {
-              "id": 10,
-              "name": "더스팅 파우더"
-            }
-          ]
+          "name": "버블바"
+        },
+        {
+          "id": 3,
+          "name": "배쓰 오일"
         }
       ]
     },
     {
       "id": 2,
-      "name": "러쉬 소개",
-      "main_category": []
+      "name": "샤워",
+      "sub_category": [
+        {
+          "id": 4,
+          "name": "솝"
+        },
+        {
+          "id": 5,
+          "name": "샤워젤&젤리"
+        },
+        {
+          "id": 6,
+          "name": "보디 컨디셔너"
+        }
+      ]
     },
     {
       "id": 3,
-      "name": "매장 안내",
-      "main_category": []
+      "name": "보디",
+      "sub_category": [
+        {
+          "id": 7,
+          "name": "배쓰 밤"
+        },
+        {
+          "id": 8,
+          "name": "버블바"
+        },
+        {
+          "id": 9,
+          "name": "배쓰 오일"
+        }
+      ]
     },
     {
       "id": 4,
-      "name": "스파",
-      "main_category": []
+      "name": "페이스",
+      "sub_category": [
+        {
+          "id": 10,
+          "name": "배쓰 밤"
+        },
+        {
+          "id": 11,
+          "name": "버블바"
+        },
+        {
+          "id": 12,
+          "name": "배쓰 오일"
+        }
+      ]
     },
     {
       "id": 5,
-      "name": "이벤트",
-      "main_category": []
-    },
-    {
-      "id": 6,
-      "name": "고 네이키드",
-      "main_category": []
+      "name": "헤어",
+      "sub_category": [
+        {
+          "id": 13,
+          "name": "배쓰 밤"
+        },
+        {
+          "id": 14,
+          "name": "버블바"
+        },
+        {
+          "id": 15,
+          "name": "배쓰 오일"
+        }
+      ]
     }
   ]
 }

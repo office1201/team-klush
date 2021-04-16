@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-import '../../../../../Styles/common.scss';
-import '../../../../../Styles/reset.scss';
 import '../../MainAll/MainSection2/MainSection2.scss';
 
 class MainSection2 extends Component {
   render() {
     return (
-      <section>
+      <section className="MainSection2">
         <div className="main2Wrapper">
           <div>
             <a href="">

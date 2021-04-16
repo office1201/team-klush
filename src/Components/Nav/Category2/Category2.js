@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import '../../../Styles/common.scss';
-import '../../../Styles/reset.scss';
 import '../Category2/Category2.scss';
 
 class Category2 extends Component {

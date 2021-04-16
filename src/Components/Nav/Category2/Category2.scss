@@ -1,11 +1,5 @@
-.notIntroduce {
-  display: none;
-}
-
 .introduce {
   position: fixed;
-  width: 100%;
-  height: auto;
   padding: 50px 350px;
   background-color: #333;
 
@@ -27,6 +21,11 @@
         font-family: 'Gothic A1', sans-serif;
         font-weight: bolder;
         color: grey;
+
+        &:hover {
+          color: white;
+          transition: 0.5s;
+        }
       }
     }
   }

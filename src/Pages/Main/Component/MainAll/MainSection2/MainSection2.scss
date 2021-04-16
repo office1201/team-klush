@@ -1,7 +1,6 @@
-section:nth-child(2) {
-  display: flex;
-  justify-content: center;
-  // background-color: royalblue;
+.MainSection2 {
+  margin: 0 auto;
+  padding: 70px 0;
 
   .main2Wrapper {
     display: grid;
@@ -14,7 +13,6 @@ section:nth-child(2) {
     div:nth-child(1) {
       grid-column: 1 / 3;
       grid-row: 1 / 3;
-      width: 100%;
       height: 100%;
       overflow: hidden;
 

@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import Category1 from '../Nav/Category1/Category1';
 import Category2 from '../Nav/Category2/Category2';
 
-import '../../Styles/common.scss';
-import '../../Styles/reset.scss';
 import '../Nav/Nav.scss';
 
 class Nav extends Component {
@@ -16,15 +14,6 @@ class Nav extends Component {
     };
   }
 
-  navMouseOver = id => {
-    this.setState({ currentId: id });
-    console.log('over');
-  };
-
-  navMouseLeave = () => {
-    this.setState({ currentId: -1 });
-  };
-
   componentDidMount() {
     fetch('/data/navdata.json')
       .then(res => res.json())
@@ -35,35 +24,46 @@ class Nav extends Component {
       });
   }
 
+  navMouseOver = id => {
+    this.setState({ currentId: id });
+  };
+
+  navMouseLeave = () => {
+    this.setState({ currentId: -1 });
+  };
+
   render() {
     const { navList, currentId } = this.state;
-    console.log(navList);
     return (
       <div onMouseLeave={this.navMouseLeave}>
         <nav>
           <h1>KLUSH</h1>
           <ul>
-            {navList.map((content, idx) => {
-              return (
-                <li
-                  key={content.id}
-                  onMouseOver={() => this.navMouseOver(idx + 1)}
-                >
-                  {content.name}
-                </li>
-              );
-            })}
+            <li onMouseOver={() => this.navMouseOver(1)}>제품</li>
+            <li onMouseOver={() => this.navMouseOver(2)}>러쉬 소개</li>
+            <li>매장 안내</li>
+            <li>스파</li>
+            <li>이벤트</li>
+            <li>고 네이키드</li>
+          </ul>
+          <ul className="navIcon">
+            <li>
+              <i class="fas fa-search"></i>
+            </li>
+            <li>
+              <i class="fas fa-shopping-bag"></i>
+            </li>
+            <li>
+              <i class="fas fa-user-circle"></i>
+            </li>
           </ul>
         </nav>
-        {MAPPING_CATEGORYS[currentId]}
+        {currentId === -1 && null}
+        {currentId === 1 && <Category1 navList={navList} />}
+        {currentId === 2 && <Category2 />}
       </div>
     );
   }
 }
-
-const MAPPING_CATEGORYS = {
-  1: <Category1 />,
-  2: <Category2 />,
-};
 
 export default Nav;

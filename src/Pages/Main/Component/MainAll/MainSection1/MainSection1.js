@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-import '../../../../../Styles/common.scss';
-import '../../../../../Styles/reset.scss';
 import '../../MainAll/MainSection1/MainSection1.scss';
 
 class MainSection1 extends Component {
   render() {
     return (
-      <section>
+      <section className="MainSection1">
         <div className="main1Wrapper">
           <h2>나만 알고싶은 향기</h2>
           <ul>

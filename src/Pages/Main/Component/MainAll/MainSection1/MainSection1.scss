@@ -1,11 +1,6 @@
-section {
-  margin: 0;
+.MainSection1 {
   padding: 70px 0;
   width: 100%;
-  height: auto;
-}
-
-section:nth-child(1) {
   .main1Wrapper {
     margin: 0 400px;
   }
@@ -17,9 +12,8 @@ section:nth-child(1) {
   }
 
   ul {
-    display: flex;
-
     li {
+      display: inline-block;
       margin-right: 50px;
       text-align: center;
 

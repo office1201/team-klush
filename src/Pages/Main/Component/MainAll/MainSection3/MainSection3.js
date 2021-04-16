@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-import '../../../../../Styles/common.scss';
-import '../../../../../Styles/reset.scss';
 import '../../MainAll/MainSection3/MainSection3.scss';
 
 class MainSection3 extends Component {
   render() {
     return (
-      <section>
+      <section className="MainSection3">
         <div className="main3Wrapper">
           <div>
             <h3>르네상스 스파 론칭</h3>
