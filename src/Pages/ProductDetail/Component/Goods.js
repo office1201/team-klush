@@ -4,6 +4,38 @@ import '../../../Styles/common.scss';
 import './Goods.scss';
 
 class Goods extends Component {
+  constructor() {
+    super();
+    this.state = {
+      value: 1,
+    };
+  }
+
+  inputValue = e => {
+    const { value } = e.target;
+    this.setState({
+      value: value,
+    });
+  };
+
+  addValue = () => {
+    const { value } = this.state;
+    if (value > 19) {
+      return;
+    }
+    this.setState({
+      value: value + 1,
+    });
+  };
+
+  minusValue = () => {
+    if (this.state.value < 2) {
+      return;
+    }
+    this.setState({
+      value: this.state.value - 1,
+    });
+  };
 
   render() {
     return (
@@ -51,9 +83,17 @@ class Goods extends Component {
               <li>
                 <strong>구매수량</strong>
                 <span className="count">
-                  <button className="minus">-</button>
-                  <input className="inputCount" value={}></input>
-                  <button className="plus">+</button>
+                  <button className="minus" onClick={this.minusValue}>
+                    -
+                  </button>
+                  <input
+                    className="inputCount"
+                    onChange={this.inputValue}
+                    value={this.state.value}
+                  ></input>
+                  <button className="plus" onClick={this.addValue}>
+                    +
+                  </button>
                 </span>
               </li>
             </ul>

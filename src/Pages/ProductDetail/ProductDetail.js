@@ -20,7 +20,6 @@ class ProductDetail extends Component {
             <p>멜리진</p>
             <p>Melusine Bath Bomb</p>
           </div>
-
           <article className="innerTop">
             <img></img>
             <div class="review">
