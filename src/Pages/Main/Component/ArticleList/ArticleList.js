@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import '../../../Styles/common.scss';
-import '../../../Styles/reset.scss';
-import '../../Main/Component/ArticleList.scss';
+import '../../../../Styles/common.scss';
+import '../../../../Styles/reset.scss';
+import '../ArticleList/ArticleList.scss';
 
 class ArticleList extends Component {
   render() {

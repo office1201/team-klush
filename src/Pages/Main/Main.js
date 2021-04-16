@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Nav from '../Main/Component/Nav';
-import ArticleList from '../Main/Component/ArticleList';
-import MainAll from './Component/MainAll';
-import Footer from '../Main/Component/Footer';
+import Nav from '../../Components/Nav/Nav';
+import ArticleList from '../Main/Component/ArticleList/ArticleList';
+import MainAll from '../Main/Component/MainAll/MainAll';
+import Footer from '../../Components/Footer/Footer';
 
 import '../../Styles/common.scss';
 import '../../Styles/reset.scss';

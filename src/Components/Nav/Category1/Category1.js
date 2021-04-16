@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import '../../../Styles/common.scss';
 import '../../../Styles/reset.scss';
-import '../../Main/Component/Category1.scss';
+import '../Category1/Category1.scss';
 
 class Category1 extends Component {
   render() {

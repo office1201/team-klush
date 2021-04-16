@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import '../../../Styles/common.scss';
-import '../../../Styles/reset.scss';
-import '../../Main/Component/MainSection1.scss';
+import '../../../../../Styles/common.scss';
+import '../../../../../Styles/reset.scss';
+import '../../MainAll/MainSection1/MainSection1.scss';
 
 class MainSection1 extends Component {
   render() {
