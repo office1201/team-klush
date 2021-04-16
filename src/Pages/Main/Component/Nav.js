@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Category1 from '../Component/Category1';
+import Category2 from '../Component/Category2';
+
 import '../../../Styles/common.scss';
 import '../../../Styles/reset.scss';
 import '../../Main/Component/Nav.scss';
@@ -8,77 +11,59 @@ class Nav extends Component {
   constructor() {
     super();
     this.state = {
-      isMouseover: false,
+      currentId: -1,
+      navList: [],
     };
   }
 
-  navMouseOver = () => {
-    this.setState({
-      isMouseover: true,
-    });
+  navMouseOver = id => {
+    this.setState({ currentId: id });
+    console.log('over');
   };
 
-  navMouseout = () => {
-    this.setState({
-      isMouseover: false,
-    });
+  navMouseLeave = () => {
+    this.setState({ currentId: -1 });
   };
+
+  componentDidMount() {
+    fetch('/data/navdata.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          navList: data.results,
+        });
+      });
+  }
 
   render() {
-    const { isMouseover } = this.state;
+    const { navList, currentId } = this.state;
+    console.log(navList);
     return (
-      <div>
+      <div onMouseLeave={this.navMouseLeave}>
         <nav>
           <h1>KLUSH</h1>
           <ul>
-            <li onMouseOver={this.navMouseOver} onMouseOut={this.navMouseout}>
-              제품
-            </li>
-            <li onMouseOver={this.navMouseOver} onMouseOut={this.navMouseout}>
-              러쉬 소개
-            </li>
-            <li>매장 안내</li>
-            <li>스파</li>
-            <li>이벤트</li>
-            <li>고 네이키드</li>
-          </ul>
-          <ul className="navIcon">
-            <li>
-              <i class="fas fa-search"></i>
-            </li>
-            <li>
-              <i class="fas fa-shopping-bag"></i>
-            </li>
-            <li>
-              <i class="fas fa-user-circle"></i>
-            </li>
+            {navList.map((content, idx) => {
+              return (
+                <li
+                  key={content.id}
+                  onMouseOver={() => this.navMouseOver(idx + 1)}
+                >
+                  {content.name}
+                </li>
+              );
+            })}
           </ul>
         </nav>
-        <div className={isMouseover ? 'category' : 'notCategory'}>
-          <div className="categoryContainer">
-            <ul>
-              <li>베스트</li>
-              <li>주간 베스트</li>
-              <li>별 다섯개 후기</li>
-              <li>온라인 전용</li>
-              <li>국내 제조</li>
-              <li>네이키드</li>
-              <li>홈 스파</li>
-            </ul>
-            <ul>
-              <li>솝</li>
-              <li>샤워젤&젤리</li>
-              <li>보디 컨디셔너</li>
-              <li>샤워 밤</li>
-              <li>샤워 오일</li>
-              <li>스크럽&버터</li>
-              <li>펀</li>
-            </ul>
-          </div>
-        </div>
+        {MAPPING_CATEGORYS[currentId]}
       </div>
     );
   }
 }
+
+const MAPPING_CATEGORYS = {
+  1: <Category1 />,
+  2: <Category2 />,
+};
 
 export default Nav;
