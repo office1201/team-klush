@@ -5,30 +5,30 @@ import '../../Styles/common.scss';
 
 class Login extends Component {
   state = {
-    loginId: '',
+    email: '',
     password: '',
-    isActiveBtn: false,
   };
-
-  onInputHandler = e => {
+  handleInput = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value }, () => {
-      this.checkLogin();
-    });
+    this.setState({ [name]: value });
   };
 
-  checkLogin = () => {
-    const { loginId, password } = this.state;
-    this.setState({
-      isActiveBtn: loginId.includes('@') && password.length >= 5,
-    });
+  inputIdValidator = email => {
+    if (email === '') return '';
+    if (!email.includes('@')) return 'inputFail';
+    if (email.includes('@')) return 'inputSuccess';
   };
 
+  inputPwValidator = pw => {
+    if (pw === '') return '';
+    if (pw !== '' && !pw.includes('@') && pw.length >= 3) return 'fail';
+    if (pw.length >= 5) return 'success';
+  };
   goToMain = () => {
     fetch('http://10.58.6.100:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        loginId: this.state.loginId,
+        loginId: this.state.email,
         password: this.state.password,
       }),
     })
@@ -45,49 +45,54 @@ class Login extends Component {
   };
 
   render() {
-    const { isActiveBtn } = this.state;
+    const { email, password } = this.state;
     return (
       <section className="login">
         <div className="loginContainer">
           <h2>로그인</h2>
           <form>
-            <img
-              src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_id.png"
-              alt="아이디 이미지입니다"
-            />
-            <input
-              onChange={this.onInputHandler}
-              onKeyUp={this.checkLogin}
-              type="text"
-              placeholder="아이디"
-              className="inputId"
-              name="loginId"
-            />
-            <input
-              onChange={this.onInputHandler}
-              onKeyUp={this.checkLogin}
-              type="password"
-              placeholder="비밀번호"
-              className="inputPw"
-              name="password"
-            />
-            <img
-              src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_password.png"
-              alt="비밀번호 이미지입니다"
-            />
+            <div>
+              <input
+                onChange={this.handleInput}
+                type="text"
+                placeholder="아이디"
+                className={`inputId ${this.inputIdValidator(email)}`}
+                name="email"
+              />
+              <img
+                src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_id.png"
+                alt="아이디 이미지입니다"
+              />
+              <i
+                class={`far fa-check-circle ${this.inputIdValidator(email)}`}
+              ></i>
+            </div>
+            <div>
+              <input
+                onChange={this.handleInput}
+                type="password"
+                placeholder="비밀번호"
+                className={`inputId ${this.inputPwValidator(password)}`}
+                name="password"
+              />
+              <img
+                src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_password.png"
+                alt="비밀번호 이미지입니다"
+              />
+              <i
+                class={`far fa-check-circle ${this.inputIdValidator(password)}`}
+              ></i>
+            </div>
             <div className="loginSave">
               <div className="save">
                 <input type="checkbox" className="checkbox" id="saveId" />
                 <label for="saveId">아이디 저장</label>
               </div>
             </div>
-            <button
-              onClick={this.goToMain}
-              className={isActiveBtn ? 'isActiveBtn' : 'loginBtn'}
-            >
+            <button onClick={this.goToMain} className="loginBtn">
               <span>로그인</span>
             </button>
-            <div className="loginMenu">
+            <div className="loginMenu ">
               <button className="btnMenu" id="btnJoinMember">
                 회원가입
               </button>
