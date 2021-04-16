@@ -21,9 +21,15 @@ class Login extends Component {
 
   inputPwValidator = pw => {
     if (pw === '') return '';
-    if (pw !== '' && !pw.includes('@') && pw.length >= 3) return 'fail';
-    if (pw.length >= 5) return 'success';
+    if (pw.length > 8) return 'inputSuccess';
+    if (pw.length !== '') return 'inputFail';
   };
+
+  buttonValidator = (email, pw) => {
+    if (email.includes('@') && pw.length > 8) return 'btnSuccess';
+    return '';
+  };
+
   goToMain = () => {
     fetch('http://10.58.6.100:8000/users/signin', {
       method: 'POST',
@@ -80,7 +86,7 @@ class Login extends Component {
                 alt="비밀번호 이미지입니다"
               />
               <i
-                class={`far fa-check-circle ${this.inputIdValidator(password)}`}
+                class={`far fa-check-circle ${this.inputPwValidator(password)}`}
               ></i>
             </div>
             <div className="loginSave">
@@ -89,10 +95,13 @@ class Login extends Component {
                 <label for="saveId">아이디 저장</label>
               </div>
             </div>
-            <button onClick={this.goToMain} className="loginBtn">
+            <button
+              onClick={this.goToMain}
+              className={`loginBtn ${this.buttonValidator(email, password)}`}
+            >
               <span>로그인</span>
             </button>
-            <div className="loginMenu ">
+            <div className="loginMenu">
               <button className="btnMenu" id="btnJoinMember">
                 회원가입
               </button>

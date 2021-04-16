@@ -1,4 +1,5 @@
 @import '../../Styles/common.scss';
+
 .login {
   @extend %flex-all-center;
   width: 100vw;
@@ -84,7 +85,7 @@
     .loginBtn {
       background-color: silver;
     }
-    .isActiveBtn {
+    .btnSuccess {
       background-color: black;
       cursor: pointer;
     }
