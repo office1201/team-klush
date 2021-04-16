@@ -1,4 +1,5 @@
 @import '../../../Styles/variable.scss';
+@import '../../../Styles/common.scss';
 
 .Goods {
   width: 1180px;
@@ -177,16 +178,14 @@
         width: 285px;
         height: 50px;
         border: 1px solid black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @extend %flex-all-center;
       }
       :nth-child(2) {
         width: 285px;
         height: 50px;
-        border: 1px solid black;
         color: white;
         background-color: black;
+        @extend %flex-all-center;
       }
     }
   }

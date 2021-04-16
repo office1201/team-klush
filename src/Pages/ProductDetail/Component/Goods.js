@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ProductWeight from './ProductWeight';
+import { Link } from 'react-router-dom';
 import '../../../Styles/reset.scss';
 import '../../../Styles/common.scss';
 import './Goods.scss';
@@ -98,6 +100,7 @@ class Goods extends Component {
                     +
                   </button>
                 </span>
+                {/* <ProductWeight /> */}
               </li>
             </ul>
             <div className="endPrice">
@@ -107,12 +110,8 @@ class Goods extends Component {
               </span>
             </div>
             <div className="buyBtn">
-              <a>
-                <span>장바구니</span>
-              </a>
-              <a>
-                <span>주문하기</span>
-              </a>
+              <Link to="/cart">장바구니</Link>
+              <Link to="/cart">주문하기</Link>
             </div>
           </div>
         </section>
