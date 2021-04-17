@@ -44,78 +44,78 @@ class Goods extends Component {
   render() {
     const { value, price } = this.state;
     return (
-      <div>
-        <section className="Goods">
-          <div>
-            <div className="mainImage">
-              <img
-                src="https://cdn.pixabay.com/photo/2016/01/14/09/21/handmade-1139554_960_720.jpg"
-                alt="제품 상단 이미지"
-              />
-            </div>
-            <div className="imgSlide">
-              <ul>
-                <li>
-                  {/* <img
+      <section className="Goods">
+        <div>
+          <div className="mainImage">
+            <img
+              src="https://cdn.pixabay.com/photo/2016/01/14/09/21/handmade-1139554_960_720.jpg"
+              alt="제품 상단 이미지"
+            />
+          </div>
+          <div className="imgSlide">
+            <ul>
+              <li>
+                {/* <img
                     src="https://cdn.pixabay.com/photo/2016/01/14/09/21/handmade-1139554_960_720.jpg"
                     alt="제품 슬라이드 이미지"
                   /> */}
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="infoWrap">
-            <div className="goodsTitle">
-              <div className="title">
-                <span>멜리진</span>
-                <button>
-                  <i class="far fa-heart"></i>
-                </button>
-              </div>
-              <p>#배쓰밤 #해초의부드러움</p>
-            </div>
-            <span>Good to Know </span>
-            <button className="goodKnow">?</button>
-            <ul className="pwBox">
-              <li>
-                <strong>판매가</strong>
-                <span className="price">&#8361; 19,000</span>
-              </li>
-              <li>
-                <strong>상품무게</strong>
-                <span>200g</span>
-              </li>
-              <li>
-                <strong>구매수량</strong>
-                <span className="count">
-                  <button className="minus" onClick={this.minusValue}>
-                    -
-                  </button>
-                  <input
-                    className="inputCount"
-                    onChange={this.inputValue}
-                    value={this.state.value}
-                  ></input>
-                  <button className="plus" onClick={this.addValue}>
-                    +
-                  </button>
-                </span>
-                {/* <ProductWeight /> */}
               </li>
             </ul>
-            <div className="endPrice">
-              <span className="totalTxt">총 합계 금액</span>
-              <span className="totalPrice">
-                &#8361; {`${(price * value).toLocaleString()}`}
-              </span>
-            </div>
-            <div className="buyBtn">
-              <Link to="/cart">장바구니</Link>
-              <Link to="/cart">주문하기</Link>
-            </div>
           </div>
-        </section>
-      </div>
+        </div>
+        <div className="infoWrap">
+          <div className="goodsTitle">
+            <div className="title">
+              <span>머메이드즈 티얼스</span>
+              <button>
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <p>#솝 #해초의부드러움</p>
+          </div>
+          <span>Good to Know </span>
+          <button className="goodKnow">?</button>
+          <ul className="pwBox">
+            <li>
+              <strong>판매가</strong>
+              <span className="price">
+                &#8361; {this.state.price.toLocaleString()}
+              </span>
+            </li>
+            <li>
+              <strong>상품무게</strong>
+              <span>200g</span>
+            </li>
+            <li>
+              <strong>구매수량</strong>
+              <span className="count">
+                <button className="minus" onClick={this.minusValue}>
+                  -
+                </button>
+                <input
+                  className="inputCount"
+                  onChange={this.inputValue}
+                  value={this.state.value}
+                ></input>
+                <button className="plus" onClick={this.addValue}>
+                  +
+                </button>
+              </span>
+              {/* <ProductWeight /> */}
+            </li>
+          </ul>
+          <div className="endPrice">
+            <span className="totalTxt">총 합계 금액</span>
+            <span className="totalPrice">
+              &#8361; {`${(price * value).toLocaleString()}`}
+            </span>
+          </div>
+          <div className="buyBtn">
+            <Link to="/cart">장바구니</Link>
+            <Link to="/cart">주문하기</Link>
+          </div>
+        </div>
+      </section>
     );
   }
 }
