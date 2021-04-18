@@ -2,10 +2,8 @@
 
 .login {
   @extend %flex-all-center;
-  width: 100vw;
-  height: 100vh;
   margin: 50px 0px;
-  padding: 0px 0px 50px;
+  padding-bottom: 50px;
 
   .loginContainer {
     padding: 50px 0px;
@@ -16,6 +14,7 @@
       margin-bottom: 30px;
       font-size: 30px;
     }
+
     form {
       display: flex;
       flex-direction: column;
@@ -28,41 +27,51 @@
         bottom: 35px;
         right: 130px;
       }
+
       .far {
         position: relative;
         left: 130px;
         bottom: 33px;
         font-size: 15px;
       }
+
       .loginInput {
         height: 60px;
       }
+
       .inputId {
         width: 100%;
         height: 50px;
         padding: 0px 0px 0px 44px;
         border: 1px solid #bebebe;
       }
-      .inputId:focus {
+
+      & .inputId:focus {
         border: 1px solid black;
       }
-      .inputId.inputFail {
+
+      & .inputId.inputFail {
         border: 1px solid red;
       }
-      .inputId.inputSuccess {
+
+      & .inputId.inputSuccess {
         border: 1px solid green;
       }
+
       .far {
         border: none;
       }
-      .far.inputFail {
+
+      & .far.inputFail {
         color: red;
       }
-      .far.inputSuccess {
+      & .far.inputSuccess {
         color: green;
       }
+
       .loginSave {
         display: flex;
+
         .save {
           margin-bottom: 20px;
           font-size: 14px;
@@ -73,12 +82,14 @@
             display: flex;
             align-items: center;
           }
+
           .checkbox {
             margin-right: 10px;
           }
         }
       }
     }
+
     .loginBtn,
     .isActiveBtn {
       width: 320px;
@@ -98,6 +109,7 @@
     }
     .loginMenu {
       margin-top: 20px;
+
       .btnMenu {
         background-color: transparent;
         padding: 0px 10px;

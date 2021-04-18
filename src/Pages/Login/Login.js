@@ -8,6 +8,7 @@ class Login extends Component {
     email: '',
     password: '',
   };
+
   handleInput = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -34,7 +35,7 @@ class Login extends Component {
     fetch('http://192.168.0.9:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        loginId: this.state.email,
+        login_id: this.state.email,
         password: this.state.password,
       }),
     })
@@ -42,10 +43,10 @@ class Login extends Component {
       .then(response => {
         if (response.token) {
           localStorage.setItem('token', response.token);
-          alert('로그인 성공!');
+          console.log('성공');
           this.props.history.push('/');
         } else {
-          alert('로그인 실패');
+          console.log('로그인 실패');
         }
       });
   };
@@ -71,7 +72,7 @@ class Login extends Component {
               />
               <i
                 class={`far fa-check-circle ${this.inputIdValidator(email)}`}
-              ></i>
+              />
             </div>
             <div className="loginInput">
               <input
@@ -86,8 +87,10 @@ class Login extends Component {
                 alt="비밀번호 이미지입니다"
               />
               <i
-                class={`far fa-check-circle ${this.inputPwValidator(password)}`}
-              ></i>
+                className={`far fa-check-circle ${this.inputPwValidator(
+                  password
+                )}`}
+              />
             </div>
             <div className="loginSave">
               <div className="save">
@@ -104,15 +107,9 @@ class Login extends Component {
               <span>로그인</span>
             </button>
             <div className="loginMenu">
-              <button className="btnMenu" id="btnJoinMember">
-                회원가입
-              </button>
-              <button className="btnMenu" id="btnFindId">
-                아이디 찾기
-              </button>
-              <button className="btnMenu" id="btnFindPw">
-                비밀번호 찾기
-              </button>
+              <button className="btnMenu">회원가입</button>
+              <button className="btnMenu">아이디 찾기</button>
+              <button className="btnMenu">비밀번호 찾기</button>
             </div>
           </form>
         </div>
