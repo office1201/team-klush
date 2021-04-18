@@ -82,6 +82,22 @@ class SignUp extends Component {
       return 'activeBtn';
     return '';
   };
+  //10. final: 로그인 체크
+  checkLogin = e => {
+    e.preventDefault();
+    console.log(e);
+    // console.log(e);
+    // fetch('https://jsonplaceholder.typicode.com/users', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: this.state.id,
+    //     password: this.state.pw,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(result => console.log('결과:', result));
+  };
+
   render() {
     const {
       email,
@@ -258,6 +274,7 @@ class SignUp extends Component {
           </ul>
           <li className="signBtn">
             <button
+              onClick={this.checkLogin}
               className={`btn ${this.buttonValidator(
                 email,
                 password,
