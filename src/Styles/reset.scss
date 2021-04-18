@@ -71,7 +71,7 @@ textarea,
 button {
   border: none;
   font-size: 12px;
-  font-family: "NanumL";
+  font-family: 'NanumL';
 }
 ul,
 ol,
@@ -138,16 +138,16 @@ select {
   background: #fff;
   border-radius: 5px;
 }
-input[type="tel"],
-input[type="time"],
-input[type="text"],
-input[type="password"],
-input[type="search"],
-input[type="email"],
-input[type="file"],
-input[type="url"],
-input[type="number"],
-input[type="date"],
+input[type='tel'],
+input[type='time'],
+input[type='text'],
+input[type='password'],
+input[type='search'],
+input[type='email'],
+input[type='file'],
+input[type='url'],
+input[type='number'],
+input[type='date'],
 textarea {
   width: 100%;
   height: 30px;
@@ -168,16 +168,16 @@ textarea:focus,
 input:focus {
   border: 1px solid #727272;
 }
-input[type="tel"][readonly],
-input[type="text"][readonly],
-input[type="password"][readonly],
-input[type="email"][readonly],
-input[type="search"][readonly],
-input[type="tel"][disabled],
-input[type="text"][disabled],
-input[type="password"][disabled],
-input[type="search"][disabled],
-input[type="email"][disabled] {
+input[type='tel'][readonly],
+input[type='text'][readonly],
+input[type='password'][readonly],
+input[type='email'][readonly],
+input[type='search'][readonly],
+input[type='tel'][disabled],
+input[type='text'][disabled],
+input[type='password'][disabled],
+input[type='search'][disabled],
+input[type='email'][disabled] {
   background: #eaeaea;
   border-color: #c0c0c0;
   color: #666;
