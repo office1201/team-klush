@@ -9,113 +9,127 @@ class Goods extends Component {
   constructor() {
     super();
     this.state = {
-      value: 1,
-      price: 15000,
+      productData: [],
+      product_quantity: 1,
     };
+  }
+  componentDidMount() {
+    fetch('/datas/productData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          productData: data,
+        });
+      });
   }
 
   inputValue = e => {
     const { value } = e.target;
     this.setState({
-      value: value,
+      product_quantity: value,
     });
   };
 
   addValue = () => {
-    const { value } = this.state;
-    if (value > 19) {
+    const { product_quantity } = this.state;
+    if (product_quantity > 19) {
       return;
     }
     this.setState({
-      value: value + 1,
+      product_quantity: product_quantity + 1,
     });
   };
 
   minusValue = () => {
-    const { value } = this.state;
-    if (value < 2) {
+    const { product_quantity } = this.state;
+    if (product_quantity < 2) {
       return;
     }
     this.setState({
-      value: value - 1,
+      product_quantity: product_quantity - 1,
     });
   };
 
   render() {
-    const { value, price } = this.state;
+    // console.log('data', this.state.productData);
+    const { productData, product_quantity } = this.state;
     return (
-      <section className="Goods">
-        <div>
-          <div className="mainImage">
-            <img
-              src="https://cdn.pixabay.com/photo/2016/01/14/09/21/handmade-1139554_960_720.jpg"
-              alt="제품 상단 이미지"
-            />
-          </div>
-          <div className="imgSlide">
-            <ul>
-              <li>
-                {/* <img
+      // console.log("data: ", this.state.productData)
+      productData && (
+        <section className="Goods">
+          <div>
+            <div className="mainImage">
+              <img src={productData.product_image} alt="제품 상단 이미지" />
+            </div>
+
+            <div className="imgSlide">
+              <ul>
+                <li>
+                  {/* <img
                     src="https://cdn.pixabay.com/photo/2016/01/14/09/21/handmade-1139554_960_720.jpg"
                     alt="제품 슬라이드 이미지"
                   /> */}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="infoWrap">
+            <div className="goodsTitle">
+              <div className="title">
+                <span>{productData.product_name}</span>
+                <button>
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <p>{productData.product_discription}</p>
+            </div>
+            <span>Good to Know </span>
+            <button className="goodKnow">?</button>
+            <ul className="pwBox">
+              <li>
+                <strong>판매가</strong>
+                <span className="price">
+                  &#8361;{Number(productData.product_price).toLocaleString()}
+                </span>
+              </li>
+              <li>
+                <strong>상품무게</strong>
+                <span>{productData.product_weight}</span>
+              </li>
+              <li>
+                <strong>구매수량</strong>
+                <span className="count">
+                  <button className="minus" onClick={this.minusValue}>
+                    -
+                  </button>
+                  <input
+                    className="inputCount"
+                    onChange={this.inputValue}
+                    value={product_quantity}
+                  ></input>
+                  <button className="plus" onClick={this.addValue}>
+                    +
+                  </button>
+                </span>
+                {/* <ProductWeight /> */}
               </li>
             </ul>
-          </div>
-        </div>
-        <div className="infoWrap">
-          <div className="goodsTitle">
-            <div className="title">
-              <span>머메이드즈 티얼스</span>
-              <button>
-                <i class="far fa-heart"></i>
-              </button>
+            <div className="endPrice">
+              <span className="totalTxt">총 합계 금액</span>
+              <span className="totalPrice">
+                &#8361;
+                {`${Number(
+                  productData.product_price * product_quantity
+                ).toLocaleString()}`}
+              </span>
             </div>
-            <p>#솝 #해초의부드러움</p>
+            <div className="buyBtn">
+              <Link to="/cart">장바구니</Link>
+              <Link to="/cart">주문하기</Link>
+            </div>
           </div>
-          <span>Good to Know </span>
-          <button className="goodKnow">?</button>
-          <ul className="pwBox">
-            <li>
-              <strong>판매가</strong>
-              <span className="price">
-                &#8361; {this.state.price.toLocaleString()}
-              </span>
-            </li>
-            <li>
-              <strong>상품무게</strong>
-              <span>200g</span>
-            </li>
-            <li>
-              <strong>구매수량</strong>
-              <span className="count">
-                <button className="minus" onClick={this.minusValue}>
-                  -
-                </button>
-                <input
-                  className="inputCount"
-                  onChange={this.inputValue}
-                  value={this.state.value}
-                ></input>
-                <button className="plus" onClick={this.addValue}>
-                  +
-                </button>
-              </span>
-              {/* <ProductWeight /> */}
-            </li>
-          </ul>
-          <div className="endPrice">
-            <span className="totalTxt">총 합계 금액</span>
-            <span className="totalPrice">
-              &#8361; {`${(price * value).toLocaleString()}`}
-            </span>
-          </div>
-          <div className="buyBtn">
-            <Link to="/cart">장바구니</Link>
-            <Link to="/cart">주문하기</Link>
-          </div>
-        </div>
-      </section>
+        </section>
+      )
     );
   }
 }

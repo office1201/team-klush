@@ -11,7 +11,8 @@ import './ProductDetail.scss';
 class ProductDetail extends Component {
   state = {
     currentId: 1,
-    changeColor: false,
+    productData: [],
+    // changeColor: false,
   };
 
   handleComponent = id => {
