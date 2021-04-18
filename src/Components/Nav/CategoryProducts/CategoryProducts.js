@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import '../Category1/Category1.scss';
+import '../CategoryProducts/CategoryProducts.scss';
 import '../../../Styles/reset.scss';
 import '../../../Styles/common.scss';
 
-class Category1 extends Component {
+class CategoryProducts extends Component {
   render() {
     const { navList } = this.props;
     return (
-      <div className="category">
+      <div className="CategoryProducts">
         <div className="categoryContainer">
           {navList &&
             navList.map(main => {
@@ -28,4 +28,4 @@ class Category1 extends Component {
   }
 }
 
-export default Category1;
+export default CategoryProducts;

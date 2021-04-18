@@ -1,10 +1,13 @@
-.introduce {
+.CategoryIntroduce {
   position: fixed;
   padding: 50px 350px;
+  width: 100%;
   background-color: #333;
+  z-index: 1;
 
   .introduceContainer {
     display: flex;
+    justify-content: center;
 
     ul {
       margin-right: 50px;

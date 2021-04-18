@@ -27,18 +27,18 @@
       width: 70%;
 
       form {
-        display: flex;
         height: 45px;
 
         input {
           width: 400px;
           border-radius: 0;
-          height: 45px;
+          height: 100%;
           font-family: 'Gothic A1', sans-serif;
         }
 
         button {
           width: 100px;
+          height: 100%;
           border: 1px white solid;
           background-color: black;
           color: white;

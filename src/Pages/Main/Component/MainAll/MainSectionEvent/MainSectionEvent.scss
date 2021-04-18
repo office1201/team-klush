@@ -1,13 +1,12 @@
-.MainSection2 {
+.MainSectionEvent {
   margin: 0 auto;
   padding: 70px 0;
 
-  .main2Wrapper {
+  .MainSectionEventWrapper {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 1fr);
     margin: 0 300px;
-    width: 1500px;
     height: 500px;
 
     div:nth-child(1) {

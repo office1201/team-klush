@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Category1 from '../Nav/Category1/Category1';
-import Category2 from '../Nav/Category2/Category2';
+import CategoryProducts from './CategoryProducts/CategoryProducts';
+import CategoryIntroduce from './CategoryIntroduce/CategoryIntroduce';
 
 import '../Nav/Nav.scss';
 
@@ -35,7 +35,7 @@ class Nav extends Component {
   render() {
     const { navList, currentId } = this.state;
     return (
-      <div onMouseLeave={this.navMouseLeave}>
+      <div onMouseLeave={this.navMouseLeave} className="Nav">
         <nav>
           <h1>KLUSH</h1>
           <ul>
@@ -59,8 +59,8 @@ class Nav extends Component {
           </ul>
         </nav>
         {currentId === -1 && null}
-        {currentId === 1 && <Category1 navList={navList} />}
-        {currentId === 2 && <Category2 />}
+        {currentId === 1 && <CategoryProducts navList={navList} />}
+        {currentId === 2 && <CategoryIntroduce />}
       </div>
     );
   }
