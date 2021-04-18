@@ -34,6 +34,9 @@
         bottom: 33px;
         font-size: 15px;
       }
+      .loginInput {
+        height: 60px;
+      }
       .inputId {
         width: 100%;
         height: 50px;
@@ -67,7 +70,11 @@
           color: #8f8f8f;
 
           label {
-            padding: 0px 0px 0px 10px;
+            display: flex;
+            align-items: center;
+          }
+          .checkbox {
+            margin-right: 10px;
           }
         }
       }

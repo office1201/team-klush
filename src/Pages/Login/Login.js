@@ -31,7 +31,7 @@ class Login extends Component {
   };
 
   goToMain = () => {
-    fetch('http://10.58.6.100:8000/users/signin', {
+    fetch('http://192.168.0.9:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         loginId: this.state.email,
@@ -57,7 +57,7 @@ class Login extends Component {
         <div className="loginContainer">
           <h2>로그인</h2>
           <form>
-            <div>
+            <div className="loginInput">
               <input
                 onChange={this.handleInput}
                 type="text"
@@ -73,7 +73,7 @@ class Login extends Component {
                 class={`far fa-check-circle ${this.inputIdValidator(email)}`}
               ></i>
             </div>
-            <div>
+            <div className="loginInput">
               <input
                 onChange={this.handleInput}
                 type="password"
@@ -91,8 +91,10 @@ class Login extends Component {
             </div>
             <div className="loginSave">
               <div className="save">
-                <input type="checkbox" className="checkbox" id="saveId" />
-                <label for="saveId">아이디 저장</label>
+                <label>
+                  <input type="checkbox" className="checkbox" />
+                  아이디 저장
+                </label>
               </div>
             </div>
             <button
