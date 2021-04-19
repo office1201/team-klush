@@ -11,7 +11,6 @@ class Login extends Component {
 
   handleInput = e => {
     const { name, value } = e.target;
-    console.log(name);
     this.setState({ [name]: value });
   };
 
@@ -32,8 +31,9 @@ class Login extends Component {
     return '';
   };
 
-  goToMain = () => {
-    fetch('http://192.168.0.9:8000/users/signin', {
+  goToMain = e => {
+    e.preventDefault();
+    fetch('http://10.58.2.24:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         login_id: this.state.email,
@@ -42,12 +42,12 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        if (response.token) {
-          localStorage.setItem('token', response.token);
-          console.log('성공');
+        console.log(response);
+        if (response.MESSAGE === 'SUCCESS') {
+          alert('로그인 성공');
           this.props.history.push('/');
         } else {
-          console.log('로그인 실패');
+          alert('로그인 실패');
         }
       });
   };
