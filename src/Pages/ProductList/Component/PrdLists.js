@@ -3,10 +3,7 @@ import './PrdLists.scss';
 
 class PrdLists extends Component {
   handleInput = id => {
-    // console.log('click');
-    console.log(id);
-
-    // this.goToDetail(value);
+    // console.log(id);
   };
 
   goToDetail = value => {
@@ -18,7 +15,7 @@ class PrdLists extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log('결과:', data);
+        // console.log('결과:', data);
         if (data['MESSAGE'] === 'SUCCESS') {
           alert('성공!');
           this.props.history.push('/ProductDetail');

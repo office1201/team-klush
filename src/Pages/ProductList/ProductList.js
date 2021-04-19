@@ -19,13 +19,11 @@ class ProductList extends Component {
         this.setState({
           productLists: data,
         });
-        console.log(this.state.productLists);
       });
   }
 
   render() {
     const { productLists } = this.state;
-    // console.log('productList:', productLists);
     return (
       <div>
         <Nav />
