@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import Nav from '../../Components/Nav/Nav';
+import Footer from '../../Components/Footer/Footer';
 import PrdLists from './Component/PrdLists';
-import '../../Styles/reset.scss';
-import '../../Styles/common.scss';
+import { PRODUCTS_API } from '../../config';
 import './ProductList.scss';
 
 class ProductList extends Component {
@@ -13,21 +14,20 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/productListData.json')
+    fetch(`${PRODUCTS_API}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          productLists: data,
+          productLists: data.results,
         });
-        // console.log(this.state.productLists);
       });
   }
 
   render() {
     const { productLists } = this.state;
-    console.log('productList:', productLists);
     return (
       <div>
+        <Nav />
         <div className="productDetail">
           <div className="subVisual">
             <p className="mainTxt">SOAP</p>
@@ -49,10 +49,9 @@ class ProductList extends Component {
             </div>
             <section>
               <ul>
-                {productLists &&
-                  productLists.map(product => {
-                    return <PrdLists key={product.id} product={product} />;
-                  })}
+                {productLists.map(product => {
+                  return <PrdLists key={product.id} product={product} />;
+                })}
               </ul>
             </section>
             <ul className="pageNation">
@@ -62,6 +61,7 @@ class ProductList extends Component {
             </ul>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
