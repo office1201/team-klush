@@ -14,6 +14,23 @@ class ArticleList extends Component {
     this.setState({ carouselId: id });
   };
 
+  autoCarousel = () => {
+    let counter = 1;
+    setInterval(() => {
+      counter++;
+      if (counter > 5) {
+        counter = 1;
+      }
+      this.setState({
+        carouselId: counter,
+      });
+    }, 10000);
+  };
+
+  componentDidMount() {
+    this.autoCarousel();
+  }
+
   render() {
     const { carouselId } = this.state;
     return (
@@ -30,7 +47,7 @@ class ArticleList extends Component {
           {carouselId === 2 && (
             <li>
               <img
-                src="https://i.pinimg.com/originals/6a/61/3d/6a613dfd6704e156d86c1a1ddd937458.jpg"
+                src="http://res.cloudinary.com/lush/image/upload/c_scale,h_628,w_1200/v1536069458/showcase-2018/showcase-logo_pink.png"
                 alt=""
               />
             </li>

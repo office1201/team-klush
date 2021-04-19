@@ -17,7 +17,7 @@ class Footer extends Component {
         <section className="footerMain">
           <div className="footerLog">
             <span>KLUSH</span>
-            <div class="snsLink">
+            <div className="snsLink">
               <ul>
                 <li></li>
                 <li></li>

@@ -48,10 +48,10 @@ class Nav extends Component {
           </ul>
           <ul className="navIcon">
             <li>
-              <i class="fas fa-search"></i>
+              <i className="fas fa-search"></i>
             </li>
             <li>
-              <i class="fas fa-shopping-bag"></i>
+              <i className="fas fa-shopping-bag"></i>
             </li>
             <li>
               <i class="fas fa-user-circle"></i>
