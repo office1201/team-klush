@@ -25,7 +25,7 @@ class ProductList extends Component {
 
   render() {
     const { productLists } = this.state;
-    console.log(productLists);
+    console.log('productList:', productLists);
     return (
       <div>
         <div className="productDetail">
@@ -53,7 +53,6 @@ class ProductList extends Component {
                   productLists.map(product => {
                     return <PrdLists key={product.id} product={product} />;
                   })}
-                <PrdLists />
               </ul>
             </section>
             <ul className="pageNation">

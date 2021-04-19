@@ -9,20 +9,19 @@ class PrdLists extends Component {
     // console.log(product);
     return (
       <div className="PrdLists">
-        {product && (
-          <li>
-            <img src={product.imgSrc} alt="제품 사진" />
-            <div className="conditionBox">
-              <span className="new">new</span>
-              <span className="best">best</span>
-            </div>
-            <div className="prdInfo">
-              <span className="Name">{product.title}</span>
-              <span className="hashtag">#{product.hashtag}</span>
-              <span className="price">{product.price}</span>
-            </div>
-          </li>
-        )}
+        <li>
+          <img src={product.img_url} alt="제품 사진" />
+          <div className="conditionBox">
+            {product.map(product => {
+              return <span className={product.label[0]}></span>;
+            })}
+          </div>
+          <div className="prdInfo">
+            <span className="Name">{product.name}</span>
+            <span className="hashtag">{product.description}</span>
+            <span className="price">{product.price}</span>
+          </div>
+        </li>
       </div>
     );
   }
