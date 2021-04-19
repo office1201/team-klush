@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "type": "text",
+    "title": "아이디",
+    "placeholder": null
+  },
+  {
+    "id": 2,
+    "type": "password",
+    "title": "비밀번호",
+    "placeholder": null
+  },
+  {
+    "id": 3,
+    "type": "password",
+    "title": "비밀번호 확인",
+    "placeholder": null
+  },
+  {
+    "id": 4,
+    "type": "text",
+    "title": "이름",
+    "placeholder": null
+  },
+  {
+    "id": 5,
+    "type": "text",
+    "title": "닉네임",
+    "placeholder": null
+  },
+  {
+    "id": 6,
+    "type": "email",
+    "title": "이메일",
+    "placeholder": null
+  },
+  {
+    "id": 7,
+    "type": "text",
+    "title": "휴대폰 번호",
+    "placeholder": "- 없이 입력하세요."
+  }
+]
