@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import PrdLists from './Component/PrdLists';
+import { PRODUCTS_API } from '../../config';
 import './ProductList.scss';
 
 class ProductList extends Component {
@@ -13,11 +14,11 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/productListData.json')
+    fetch(`${PRODUCTS_API}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          productLists: data,
+          productLists: data.results,
         });
       });
   }

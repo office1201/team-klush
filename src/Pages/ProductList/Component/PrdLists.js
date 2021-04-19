@@ -6,22 +6,22 @@ class PrdLists extends Component {
     // console.log(id);
   };
 
-  goToDetail = value => {
-    fetch('api주소', {
-      method: 'POST',
-      body: JSON.stringify({
-        id: value,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        // console.log('결과:', data);
-        if (data['MESSAGE'] === 'SUCCESS') {
-          alert('성공!');
-          this.props.history.push('/ProductDetail');
-        }
-      });
-  };
+  // goToDetail = value => {
+  //   fetch('api주소', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       id: value,
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       // console.log('결과:', data);
+  //       if (data['MESSAGE'] === 'SUCCESS') {
+  //         alert('성공!');
+  //         this.props.history.push('/ProductDetail');
+  //       }
+  //     });
+  // };
 
   render() {
     const { product } = this.props;
