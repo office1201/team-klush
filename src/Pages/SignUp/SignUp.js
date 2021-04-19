@@ -11,11 +11,19 @@ class SignUp extends Component {
     nickname: '',
     emailAdress: '',
     phoneNumber: '',
-    signUpList: [],
   };
 
-  handleInput = e => {
-    const { name, value } = e.target;
+  handleInput = (index, e) => {
+    const { value } = e.target;
+    let name = '';
+    if (index === 0) name = 'id';
+    if (index === 1) name = 'pw';
+    if (index === 2) name = 'pwCheck';
+    if (index === 3) name = 'username';
+    if (index === 4) name = 'nickname';
+    if (index === 5) name = 'emailAdress';
+    if (index === 6) name = 'phoneNumber';
+
     this.setState({ [name]: value });
   };
 
@@ -98,20 +106,37 @@ class SignUp extends Component {
       }),
     })
       .then(response => response.json())
-      .then(result => console.log('결과:', result));
+      .then(response => {
+        console.log(response);
+        if (response.MESSAGE === 'SUCCESS') {
+          alert('로그인 성공');
+          this.props.history.push('/');
+        } else {
+          alert('로그인 실패');
+        }
+      });
   };
 
-  componentDidMount() {
-    fetch('http://localhost:3000/data/SignUpList.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          signUpList: data,
-        });
-      });
-  }
+  mapValidatorToIndex = {
+    0: this.idValidator,
+    1: this.pwValidatorOne,
+    2: this.pwValidatorTwo,
+    3: this.nameValidator,
+    4: this.nicknameValidator,
+    5: this.emailValidator,
+    6: this.phoneValidator,
+  };
+
+  mapStateToIndex = {
+    0: 'id',
+    1: 'pw',
+    2: 'pwCheck',
+    3: 'username',
+    4: 'nickname',
+    5: 'emailAdress',
+    6: 'phoneNumber',
+  };
+
   render() {
     const {
       id,
@@ -121,8 +146,8 @@ class SignUp extends Component {
       nickname,
       emailAdress,
       phoneNumber,
-      signUpList,
     } = this.state;
+
     return (
       <section className="signup">
         <div className="signupInfo">
@@ -143,15 +168,17 @@ class SignUp extends Component {
             </p>
           </div>
           <ul className="signFormTable">
-            {signUpList.map(comment => {
+            {signUpList.map((comment, index) => {
               return (
                 <SignUpList
                   key={comment.id}
+                  index={index}
                   type={comment.type}
                   title={comment.title}
                   placeholder={comment.placeholder}
                   handleInput={this.handleInput}
-                  idValidator={this.idValidator(this.state.id)}
+                  validator={this.mapValidatorToIndex[index]}
+                  stateName={this.state[this.mapStateToIndex[index]]}
                 />
               );
             })}
@@ -179,3 +206,48 @@ class SignUp extends Component {
 }
 
 export default SignUp;
+
+const signUpList = [
+  {
+    id: 1,
+    type: 'text',
+    title: '아이디',
+    placeholder: null,
+  },
+  {
+    id: 2,
+    type: 'password',
+    title: '비밀번호',
+    placeholder: null,
+  },
+  {
+    id: 3,
+    type: 'password',
+    title: '비밀번호 확인',
+    placeholder: null,
+  },
+  {
+    id: 4,
+    type: 'text',
+    title: '이름',
+    placeholder: null,
+  },
+  {
+    id: 5,
+    type: 'text',
+    title: '닉네임',
+    placeholder: null,
+  },
+  {
+    id: 6,
+    type: 'email',
+    title: '이메일',
+    placeholder: null,
+  },
+  {
+    id: 7,
+    type: 'text',
+    title: '휴대폰 번호',
+    placeholder: '- 없이 입력하세요.',
+  },
+];

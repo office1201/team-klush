@@ -97,30 +97,30 @@
           .idError {
             color: black;
             visibility: hidden;
-          }
 
-          .idError.inputFail {
-            visibility: visible;
-            color: red;
-          }
+            &.inputFail {
+              visibility: visible;
+              color: red;
+            }
 
-          .idError.inputSuccess {
-            visibility: visible;
-            color: green;
+            &.inputSuccess {
+              visibility: visible;
+              color: green;
+            }
           }
 
           input {
             display: inline-block;
             width: 100%;
             height: 100%;
-          }
 
-          input.inputFail {
-            border: 1px solid red;
-          }
+            &.inputFail {
+              border: 1px solid red;
+            }
 
-          input.inputSuccess {
-            border: 1px solid green;
+            &.inputSuccess {
+              border: 1px solid green;
+            }
           }
         }
       }
@@ -134,13 +134,8 @@
         width: 280px;
         height: 63px;
         color: white;
-        background-color: silver;
-        font-size: 16px;
-      }
-
-      .btn.activeBtn {
         background-color: black;
-        cursor: pointer;
+        font-size: 16px;
       }
     }
   }
