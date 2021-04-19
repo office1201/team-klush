@@ -1,0 +1,55 @@
+@import '../../../Styles/variable.scss';
+
+.PrdLists {
+  li {
+    padding-bottom: 5px 30px 5px 5px;
+    // border: 1px solid black;
+    @extend %flex-all-center;
+    flex-flow: column;
+
+    .conditionBox {
+      width: 285px;
+      height: 27px;
+      padding-bottom: 3px;
+      @extend %flex-all-center;
+
+      .new {
+        width: 74px;
+        padding: 5px 10px;
+        margin: 0 5px;
+        border-radius: 10px;
+        background-color: green;
+        text-align: center;
+        color: white;
+      }
+      .best {
+        width: 74px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: greenyellow;
+        text-align: center;
+        color: white;
+      }
+    }
+    .prdInfo {
+      width: 285px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      text-align: center;
+
+      .Name {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .hashtag {
+        font-size: 14px;
+      }
+      .price {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    }
+  }
+}
