@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Nav from '../../Components/Nav/Nav';
+import Footer from '../../Components/Footer/Footer';
 import PrdLists from './Component/PrdLists';
-import '../../Styles/reset.scss';
-import '../../Styles/common.scss';
 import './ProductList.scss';
 
 class ProductList extends Component {
@@ -19,15 +19,16 @@ class ProductList extends Component {
         this.setState({
           productLists: data,
         });
-        // console.log(this.state.productLists);
+        console.log(this.state.productLists);
       });
   }
 
   render() {
     const { productLists } = this.state;
-    console.log('productList:', productLists);
+    // console.log('productList:', productLists);
     return (
       <div>
+        <Nav />
         <div className="productDetail">
           <div className="subVisual">
             <p className="mainTxt">SOAP</p>
@@ -49,10 +50,9 @@ class ProductList extends Component {
             </div>
             <section>
               <ul>
-                {productLists &&
-                  productLists.map(product => {
-                    return <PrdLists key={product.id} product={product} />;
-                  })}
+                {productLists.map(product => {
+                  return <PrdLists key={product.id} product={product} />;
+                })}
               </ul>
             </section>
             <ul className="pageNation">
@@ -62,6 +62,7 @@ class ProductList extends Component {
             </ul>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
