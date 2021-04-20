@@ -38,7 +38,7 @@ class Nav extends Component {
       <div onMouseLeave={this.navMouseLeave} className="Nav">
         <nav>
           <h1>KLUSH</h1>
-          <ul>
+          <ul className="navMenu">
             <li onMouseOver={() => this.navMouseOver(1)}>제품</li>
             <li onMouseOver={() => this.navMouseOver(2)}>러쉬 소개</li>
             <li>매장 안내</li>

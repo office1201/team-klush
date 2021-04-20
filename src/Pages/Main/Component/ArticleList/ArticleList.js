@@ -32,7 +32,7 @@ class ArticleList extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.autoCarousel());
+    clearInterval(this.autoCarousel);
   }
 
   render() {

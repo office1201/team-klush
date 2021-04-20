@@ -17,10 +17,11 @@
       letter-spacing: 2px;
     }
 
-    ul {
+    .navMenu {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      margin-right: 100px;
       height: 100%;
       color: white;
 
@@ -28,7 +29,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-right: 60px;
+        margin-right: 20px;
+        min-width: 100px;
         height: 100%;
         font-size: 16px;
         font-weight: bold;
@@ -41,8 +43,21 @@
     }
 
     .navIcon {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      color: white;
+
       li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin: 0 20px;
+        height: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Gothic A1', sans-serif;
 
         i {
           font-size: 20px;

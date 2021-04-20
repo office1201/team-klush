@@ -9,10 +9,7 @@ class MainSectionEvent extends Component {
         <div className="MainSectionEventWrapper">
           <div>
             <a href="비누 이미지">
-              <img
-                src="https://images.unsplash.com/photo-1589060040782-234fa4ee0b61?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c29hcHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                alt="#"
-              />
+              <img src="http://image.yes24.com/goods/96688102/800x0" alt="#" />
             </a>
           </div>
           <div>
