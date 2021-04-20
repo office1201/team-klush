@@ -8,13 +8,13 @@ import './ProductDetail.scss';
 
 class ProductDetail extends Component {
   state = {
-    currentId: 1,
+    currentId: 0,
     productData: [],
   };
 
-  handleComponent = id => {
+  handleComponent = idx => {
     this.setState({
-      currentId: id,
+      currentId: idx,
     });
   };
   render() {
@@ -51,7 +51,11 @@ class ProductDetail extends Component {
           <div className="tab">
             {CATEGORY.map((category, idx) => {
               return (
-                <button key={idx} onClick={() => this.handleComponent(idx + 1)}>
+                <button
+                  key={idx}
+                  onClick={() => this.handleComponent(idx)}
+                  className={idx === this.state.currentId ? 'Active' : ''}
+                >
                   {category}
                 </button>
               );
@@ -67,9 +71,9 @@ class ProductDetail extends Component {
 export default ProductDetail;
 
 const MAPPING_OBJ = {
-  1: <ProductInfo />,
-  2: <Comment />,
-  3: <Refund />,
+  0: <ProductInfo />,
+  1: <Comment />,
+  2: <Refund />,
 };
 
 const CATEGORY = ['상품상세정보', '상품후기', '상품배송'];

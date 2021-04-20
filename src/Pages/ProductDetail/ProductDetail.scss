@@ -94,27 +94,18 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 47px;
-      // .btnON {
-      //   color: white;
-      //   background-color: black;
-      // }
-      // .btnOff {
-      //   color: black;
-      //   background-color: white;
-      // }
+
       button {
         font-size: 14px;
         color: black;
         background-color: white;
         border: 1px solid black;
-        // &.btnON {
-        //   color: white;
-        //   background-color: black;
-        // }
-        // &.btnOff {
-        //   color: black;
-        //   background-color: white;
-        // }
+      }
+
+      .Active {
+        font-size: 14px;
+        color: white;
+        background-color: black;
       }
     }
   }
