@@ -5,39 +5,40 @@ class Member extends Component {
   state = {
     comment: '',
     commentList: [],
+    dates: '',
   };
 
-  // 1. 인풋 값 받아오기
   handleInput = e => {
     const { value } = e.target;
     this.setState({ comment: value });
   };
 
-  // 2. 화면 넘어가는 것 막고 -> 코멘트 추가 함수 실행
   onSubmitEnter = e => {
     e.preventDefault();
     if (e.key === 'Enter') this.handleAddComment();
   };
 
-  // 3. 클릭 시 => 코멘트 추가만
   onSubmitClick = () => {
     this.handleAddComment();
   };
 
-  // 4. 코멘트 추가
   handleAddComment = () => {
+    const date = [
+      new Date().getFullYear(),
+      new Date().getMonth(),
+      new Date().getDate(),
+    ];
+
     const { commentList, comment } = this.state;
-    this.setState(
-      {
-        commentList: [...commentList, { comment: comment }],
-        comment: '',
-      },
-      () => console.log('commentList >>> ', this.state.commentList)
-    );
+    this.setState({
+      commentList: [...commentList, { comment: comment }],
+      comment: '',
+      dates: date,
+    });
   };
 
   render() {
-    const { commentList } = this.state;
+    const { commentList, dates } = this.state;
     return (
       <section>
         <div className="comment">
@@ -68,10 +69,11 @@ class Member extends Component {
               </label>
             </div>
             <div className="commentInputBox">
-              <input
+              <textarea
                 onChange={this.handleInput}
                 className="commentInput"
                 type="text"
+                placeholder="텍스트를 입력해 주세요."
               />
             </div>
             <div className="commentPersonInfo">
@@ -86,13 +88,28 @@ class Member extends Component {
               </button>
             </div>
           </form>
-          <div>
+          <div className="commentBoxes">
             {commentList.map(comment => {
               return (
-                <li>
-                  <span>username</span>
-                  <span>{comment.comment}</span>
-                </li>
+                <>
+                  <div className="commentBox">
+                    <div className="summary">
+                      <div className="star">★★★★★</div>
+                      <div className="date">
+                        <span>{`${dates[0]}.${dates[1]}.${dates[2]}.`}</span>
+                      </div>
+                      <div className="buyer">
+                        <span>네이버페이 구매자</span>
+                      </div>
+                    </div>
+                    <div className="contentContainer">
+                      <div className="goodsBlock"></div>
+                      <div className="goodsInfoReview">
+                        <p>{comment.comment}</p>
+                      </div>
+                    </div>
+                  </div>
+                </>
               );
             })}
           </div>
