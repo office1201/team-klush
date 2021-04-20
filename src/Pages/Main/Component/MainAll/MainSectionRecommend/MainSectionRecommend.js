@@ -17,12 +17,10 @@ class MainSectionRecommend extends Component {
           recommendList: data.results,
         });
       });
-    // console.log('data: ', this.state.recommendList);
   }
 
   render() {
     const { recommendList } = this.state;
-    // console.log('data: ', this.state.recommendList);
     return (
       <section className="MainSectionRecommend">
         <div className="MainSectionRecommendWrapper">

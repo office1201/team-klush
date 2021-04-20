@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import './PrdLists.scss';
 
 class PrdLists extends Component {
-  handleInput = id => {
-    // console.log(id);
-  };
+  handleInput = id => {};
 
   // goToDetail = value => {
   //   fetch('api주소', {
@@ -31,7 +29,6 @@ class PrdLists extends Component {
           <img src={product.img_url} alt="제품 사진" />
           <div className="conditionBox">
             {product.label.map(label => {
-              // console.log(label);
               return (
                 <React.Fragment key={label}>
                   {label.type === 'new' && <span className="new">New</span>}
@@ -49,7 +46,6 @@ class PrdLists extends Component {
             <span className="price">{product.price}</span>
           </div>
         </li>
-        >>>>>>> master
       </div>
     );
   }

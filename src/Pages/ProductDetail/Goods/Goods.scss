@@ -11,14 +11,10 @@
   justify-content: center;
 
   div:nth-child(1) {
-    width: 380px;
     height: 100%;
-    // border: 1px solid green;
 
     .mainImage {
       width: 100%;
-      height: 380px;
-
       overflow: hidden;
 
       img {
@@ -31,23 +27,12 @@
       width: 100%;
       height: 70px;
       margin-top: 20px;
-      // border: 1px solid green;
-
-      // ul {
-      //   li {
-      //     img {
-      //       width: 65px;
-      //       height: 65px;
-      //     }
-      //   }
-      // }
     }
   }
 
   .infoWrap {
     width: 580px;
     height: 100%;
-    // border: 1px solid green;
 
     .goodsTitle {
       width: 100%;
@@ -126,11 +111,6 @@
 
           .minus {
             @extend .pmButton;
-            // width: 50px;
-            // height: 40px;
-            // font-size: 20px;
-            // font-family: 'Roboto Mono', monospace;
-            // background-color: white;
           }
 
           .inputCount {
@@ -142,11 +122,6 @@
 
           .plus {
             @extend .pmButton;
-            // width: 50px;
-            // height: 40px;
-            // font-size: 20px;
-            // font-family: 'Roboto Mono', monospace;
-            // background-color: white;
           }
         }
       }

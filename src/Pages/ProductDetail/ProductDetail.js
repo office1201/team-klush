@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
-import Goods from './Component/Goods';
-import ScoreReview from './Component/ScoreReview';
-import Comment from './Component/mapping/Comment';
-import ProductInfo from './Component/mapping/ProductInfo';
-import Refund from './Component/mapping/Refund';
-import '../../Styles/reset.scss';
-import '../../Styles/common.scss';
+import Goods from './Goods/Goods';
+import ScoreReview from './Component/ScoreReview/ScoreReview';
+import Comment from './Component/Comments/Comment';
+import ProductInfo from './Component/ProductInfo/ProductInfo';
+import Refund from './Component/Refund/Refund';
 import './ProductDetail.scss';
 
 class ProductDetail extends Component {
   state = {
     currentId: 1,
     productData: [],
-    // changeColor: false,
   };
 
   handleComponent = id => {
     this.setState({
       currentId: id,
-      // changeColor: !changeColor,
     });
   };
   render() {
@@ -55,11 +51,7 @@ class ProductDetail extends Component {
           <div className="tab">
             {CATEGORY.map((category, idx) => {
               return (
-                <button
-                  key={idx}
-                  onClick={() => this.handleComponent(idx + 1)}
-                  // className={idx % idx === 0 ? 'btnOn' : 'btnOff'}
-                >
+                <button key={idx} onClick={() => this.handleComponent(idx + 1)}>
                   {category}
                 </button>
               );

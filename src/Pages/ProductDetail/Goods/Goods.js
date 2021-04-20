@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import ProductWeight from './ProductWeight';
 import { Link } from 'react-router-dom';
-import '../../../Styles/reset.scss';
-import '../../../Styles/common.scss';
 import './Goods.scss';
 
 class Goods extends Component {
@@ -17,7 +14,6 @@ class Goods extends Component {
     fetch('/datas/productData.json')
       .then(res => res.json())
       .then(data => {
-        // console.log(data);
         this.setState({
           productData: data.results[0],
         });
@@ -52,7 +48,6 @@ class Goods extends Component {
   };
 
   render() {
-    console.log(this.state.productData);
     const { productData, product_quantity } = this.state;
     return (
       <section className="Goods">
@@ -66,12 +61,7 @@ class Goods extends Component {
 
           <div className="imgSlide">
             <ul>
-              <li>
-                {/* <img
-                    src="https://cdn.pixabay.com/photo/2016/01/14/09/21/handmade-1139554_960_720.jpg"
-                    alt="제품 슬라이드 이미지"
-                  /> */}
-              </li>
+              <li></li>
             </ul>
           </div>
         </div>
@@ -96,7 +86,6 @@ class Goods extends Component {
             </li>
             <li>
               <strong>상품무게</strong>
-              {/* <span>{productData.product_options[0].weight}</span> */}
             </li>
             <li>
               <strong>구매수량</strong>
@@ -113,7 +102,6 @@ class Goods extends Component {
                   +
                 </button>
               </span>
-              {/* <ProductWeight /> */}
             </li>
           </ul>
           <div className="endPrice">
@@ -134,5 +122,4 @@ class Goods extends Component {
     );
   }
 }
-
 export default Goods;
