@@ -33,7 +33,7 @@ class Login extends Component {
 
   goToMain = e => {
     e.preventDefault();
-    fetch('http://10.58.2.24:8000/users/signin', {
+    fetch(`{API_URL}`, {
       method: 'POST',
       body: JSON.stringify({
         login_id: this.state.email,
