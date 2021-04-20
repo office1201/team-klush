@@ -14,60 +14,72 @@ class ProductDetail extends Component {
     productData: [],
   };
 
+  componentDidMount() {
+    fetch(`/datas/productData.json/${this.props.match.params.id}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          productData: data.results[0],
+        });
+      });
+  }
   handleComponent = idx => {
     this.setState({
       currentId: idx,
     });
   };
   render() {
+    const { productData } = this.state;
     return (
-      <div className="ProductDetail">
-        <Nav />
-        <Goods />
-        <section className="plusReview">
-          <div className="photoReview">
-            <span>Plus Review</span>
-            <div className="inner">
-              <p>포토 리뷰 모아보기</p>
-              <div className="photoList">
-                <div className="photoInfo">
-                  정성가득 포토후기를 남겨주시면 깜짝 선물을 드려요!
+      productData.product_options[0].id !== undefined && (
+        <div className="ProductDetail">
+          <Nav />
+          <Goods productData={productData} />
+          <section className="plusReview">
+            <div className="photoReview">
+              <span>Plus Review</span>
+              <div className="inner">
+                <p>포토 리뷰 모아보기</p>
+                <div className="photoList">
+                  <div className="photoInfo">
+                    정성가득 포토후기를 남겨주시면 깜짝 선물을 드려요!
+                  </div>
+                  <span className="moreTxt">더보기&gt;</span>
                 </div>
-                <span className="moreTxt">더보기&gt;</span>
               </div>
             </div>
-          </div>
-          <div className="scoreContainer">
-            <div className="average">
-              <span>평가</span>
-              <span>5</span>
-              <span>★★★★★★</span>
+            <div className="scoreContainer">
+              <div className="average">
+                <span>평가</span>
+                <span>5</span>
+                <span>★★★★★★</span>
+              </div>
+              <div className="counter">
+                <ScoreReview />
+                <ScoreReview />
+                <ScoreReview />
+              </div>
             </div>
-            <div className="counter">
-              <ScoreReview />
-              <ScoreReview />
-              <ScoreReview />
+          </section>
+          <section className="detailContainer">
+            <div className="tab">
+              {CATEGORY.map((category, idx) => {
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => this.handleComponent(idx)}
+                    className={idx === this.state.currentId ? 'Active' : ''}
+                  >
+                    {category}
+                  </button>
+                );
+              })}
             </div>
-          </div>
-        </section>
-        <section className="detailContainer">
-          <div className="tab">
-            {CATEGORY.map((category, idx) => {
-              return (
-                <button
-                  key={idx}
-                  onClick={() => this.handleComponent(idx)}
-                  className={idx === this.state.currentId ? 'Active' : ''}
-                >
-                  {category}
-                </button>
-              );
-            })}
-          </div>
-          <div>{MAPPING_OBJ[this.state.currentId]}</div>
-        </section>
-        <Footer />
-      </div>
+            <div>{MAPPING_OBJ[this.state.currentId]}</div>
+          </section>
+          <Footer />
+        </div>
+      )
     );
   }
 }

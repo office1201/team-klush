@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
-import './PrdLists.scss';
+import { withRouter } from 'react-router-dom';
+import './Card.scss';
 
-class PrdLists extends Component {
-  handleInput = id => {};
+class Card extends Component {
 
-  // goToDetail = value => {
-  //   fetch('api주소', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       id: value,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       // console.log('결과:', data);
-  //       if (data['MESSAGE'] === 'SUCCESS') {
-  //         alert('성공!');
-  //         this.props.history.push('/ProductDetail');
-  //       }
-  //     });
-  // };
+  goToDetail = () => {
+    this.props.history.push(`/productDetail/${this.props.id}`);
+  };
 
   render() {
     const { product } = this.props;
+    console.log(this.props.id);
+
     return (
-      <div className="PrdLists">
-        <li onClick={() => this.handleInput(product.id)} className={product.id}>
+      <div className="Cards">
+        <li onClick={this.goToDetail} className={product.id}>
           <img src={product.img_url} alt="제품 사진" />
           <div className="conditionBox">
             {product.label.map(label => {
+              // console.log(label);
               return (
                 <React.Fragment key={label}>
                   {label.type === 'new' && <span className="new">New</span>}
@@ -51,4 +41,4 @@ class PrdLists extends Component {
   }
 }
 
-export default PrdLists;
+export default withRouter(Card);
