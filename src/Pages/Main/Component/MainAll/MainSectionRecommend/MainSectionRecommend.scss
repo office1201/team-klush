@@ -1,0 +1,32 @@
+.MainSectionRecommend {
+  padding: 70px 0;
+
+  .MainSectionRecommendWrapper {
+    margin: 0 400px;
+  }
+
+  h2 {
+    margin-bottom: 50px;
+    font-size: 35px;
+    font-family: 'Gothic A1', sans-serif;
+  }
+
+  ul {
+    li {
+      display: inline-block;
+      margin-right: 50px;
+      text-align: center;
+
+      img {
+        width: 250px;
+        height: 250px;
+      }
+
+      h3,
+      p {
+        margin-top: 10px;
+        font-family: 'Gothic A1', sans-serif;
+      }
+    }
+  }
+}
