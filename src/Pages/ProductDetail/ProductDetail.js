@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Nav from '../../Components/Nav/Nav';
+import Footer from '../../Components/Footer/Footer';
 import Goods from './Goods/Goods';
 import ScoreReview from './Component/ScoreReview/ScoreReview';
 import Comment from './Component/Comments/Comment';
@@ -20,6 +22,7 @@ class ProductDetail extends Component {
   render() {
     return (
       <div className="ProductDetail">
+        <Nav />
         <Goods />
         <section className="plusReview">
           <div className="photoReview">
@@ -63,6 +66,7 @@ class ProductDetail extends Component {
           </div>
           <div>{MAPPING_OBJ[this.state.currentId]}</div>
         </section>
+        <Footer />
       </div>
     );
   }

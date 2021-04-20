@@ -14,11 +14,11 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch(`${PRODUCTS_API}`)
+    fetch('/datas/productList.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          productLists: data.results,
+          productLists: data,
         });
       });
   }
