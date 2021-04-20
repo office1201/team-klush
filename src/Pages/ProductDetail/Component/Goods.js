@@ -17,8 +17,9 @@ class Goods extends Component {
     fetch('/datas/productData.json')
       .then(res => res.json())
       .then(data => {
+        // console.log(data);
         this.setState({
-          productData: data,
+          productData: data.results[0],
         });
       });
   }
@@ -51,85 +52,85 @@ class Goods extends Component {
   };
 
   render() {
-    // console.log('data', this.state.productData);
+    console.log(this.state.productData);
     const { productData, product_quantity } = this.state;
     return (
-      // console.log("data: ", this.state.productData)
-      productData && (
-        <section className="Goods">
-          <div>
-            <div className="mainImage">
-              <img src={productData.product_image} alt="제품 상단 이미지" />
-            </div>
+      <section className="Goods">
+        <div>
+          <div className="mainImage">
+            <img
+              src={productData.product_thumbnail_image}
+              alt="제품 상단 이미지"
+            />
+          </div>
 
-            <div className="imgSlide">
-              <ul>
-                <li>
-                  {/* <img
+          <div className="imgSlide">
+            <ul>
+              <li>
+                {/* <img
                     src="https://cdn.pixabay.com/photo/2016/01/14/09/21/handmade-1139554_960_720.jpg"
                     alt="제품 슬라이드 이미지"
                   /> */}
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="infoWrap">
-            <div className="goodsTitle">
-              <div className="title">
-                <span>{productData.product_name}</span>
-                <button>
-                  <i class="far fa-heart"></i>
-                </button>
-              </div>
-              <p>{productData.product_discription}</p>
-            </div>
-            <span>Good to Know </span>
-            <button className="goodKnow">?</button>
-            <ul className="pwBox">
-              <li>
-                <strong>판매가</strong>
-                <span className="price">
-                  &#8361;{Number(productData.product_price).toLocaleString()}
-                </span>
-              </li>
-              <li>
-                <strong>상품무게</strong>
-                <span>{productData.product_weight}</span>
-              </li>
-              <li>
-                <strong>구매수량</strong>
-                <span className="count">
-                  <button className="minus" onClick={this.minusValue}>
-                    -
-                  </button>
-                  <input
-                    className="inputCount"
-                    onChange={this.inputValue}
-                    value={product_quantity}
-                  ></input>
-                  <button className="plus" onClick={this.addValue}>
-                    +
-                  </button>
-                </span>
-                {/* <ProductWeight /> */}
               </li>
             </ul>
-            <div className="endPrice">
-              <span className="totalTxt">총 합계 금액</span>
-              <span className="totalPrice">
-                &#8361;
-                {`${Number(
-                  productData.product_price * product_quantity
-                ).toLocaleString()}`}
-              </span>
-            </div>
-            <div className="buyBtn">
-              <Link to="/cart">장바구니</Link>
-              <Link to="/cart">주문하기</Link>
-            </div>
           </div>
-        </section>
-      )
+        </div>
+        <div className="infoWrap">
+          <div className="goodsTitle">
+            <div className="title">
+              <span>{productData.product_name}</span>
+              <button>
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <p>{productData.product_hashtag}</p>
+          </div>
+          <span>Good to Know </span>
+          <button className="goodKnow">?</button>
+          <ul className="pwBox">
+            <li>
+              <strong>판매가</strong>
+              <span className="price">
+                &#8361;{Number(productData.product_price).toLocaleString()}
+              </span>
+            </li>
+            <li>
+              <strong>상품무게</strong>
+              {/* <span>{productData.product_options[0].weight}</span> */}
+            </li>
+            <li>
+              <strong>구매수량</strong>
+              <span className="count">
+                <button className="minus" onClick={this.minusValue}>
+                  -
+                </button>
+                <input
+                  className="inputCount"
+                  onChange={this.inputValue}
+                  value={product_quantity}
+                ></input>
+                <button className="plus" onClick={this.addValue}>
+                  +
+                </button>
+              </span>
+              {/* <ProductWeight /> */}
+            </li>
+          </ul>
+          <div className="endPrice">
+            <span className="totalTxt">총 합계 금액</span>
+            <span className="totalPrice">
+              &#8361;
+              {`${Number(
+                productData.product_price * product_quantity
+              ).toLocaleString()}`}
+            </span>
+          </div>
+          <div className="buyBtn">
+            <Link to="/cart">장바구니</Link>
+            <Link to="/cart">주문하기</Link>
+          </div>
+        </div>
+      </section>
     );
   }
 }

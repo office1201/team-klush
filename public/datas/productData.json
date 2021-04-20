@@ -1,11 +1,21 @@
 {
-  "product_image": [
-    "https://cdn.pixabay.com/photo/2016/01/14/09/21/handmade-1139554_960_720.jpg"
-  ],
-  "product_name": "머메이드즈 티얼스",
-  "product_price": "15000",
-  "product_quantity": 1,
-  "product_discription": "#솝 #해초의부드러움",
-  "product_total_price": "0",
-  "product_weight": "100g"
+  "results": [
+    {
+      "product_hashtag": "#솝,#오래쓸수있는",
+      "product_image": [
+        "https://images.unsplash.com/photo-1607006633821-b8b0f6988295?ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
+        "https://images.unsplash.com/photo-1612800083273-24ea5c80313d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+      ],
+      "product_name": "아보 굿 이스터",
+      "product_options": [
+        {
+          "extra_cost": 0.0,
+          "id": 1,
+          "weight": 195.0
+        }
+      ],
+      "product_price": 23000,
+      "product_thumbnail_image": "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
+    }
+  ]
 }
