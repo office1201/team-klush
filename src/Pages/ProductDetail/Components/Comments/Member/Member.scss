@@ -16,7 +16,7 @@ section {
     display: flex;
     align-items: center;
     padding: 20px;
-    border: 1px solid silver;
+    border-top: 1px solid silver;
     border-bottom: none;
 
     span {
@@ -38,7 +38,8 @@ section {
 
   .commentInputBox {
     height: 245px;
-    border: 1px solid silver;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
 
     .commentInput {
       border: none;
@@ -48,6 +49,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 20px;
 
     .commentPersonInfoBox {
       height: 100%;
@@ -60,11 +62,17 @@ section {
     .whiter,
     .whiterPw {
       height: 35px;
+      border: 1px solid silver;
+    }
+
+    .whiter:focus,
+    .whiterPw:focus {
+      border: 1px solid black;
     }
 
     .whiter {
       width: 150px;
-      margin-right: 40px;
+      margin-right: 30px;
     }
 
     .whiterPw {

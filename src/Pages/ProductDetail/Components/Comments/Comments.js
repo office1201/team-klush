@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import MemberNon from '../MemberNon/MemberNon';
 import Member from './Member/Member';
 
 class Comments extends Component {
@@ -7,7 +6,6 @@ class Comments extends Component {
     return (
       <>
         <Member />
-        {/* <MemberNon /> */}
       </>
     );
   }
