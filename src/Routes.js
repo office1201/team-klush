@@ -6,7 +6,7 @@ import Main from './Pages/Main/Main';
 // import SignUp from './Pages/SignUp/SignUp';
 // import ProductList from './Pages/ProductList/ProductList';
 // import ProductDetail from './Pages/ProductDetail/ProductDetail';
-// import Cart from './Pages/Cart/Cart';
+import Cart from './Pages/Cart/Cart';
 
 class Routes extends Component {
   render() {
@@ -17,8 +17,8 @@ class Routes extends Component {
           {/* <Route exact path="/login" component={Login} />
           <Route exact path="/signUp" component={SignUp} />
           <Route exact path="/productList" component={ProductList} />
-          <Route exact path="/productDetail" component={ProductDetail} />
-          <Route exact path="/cart" component={Cart} /> */}
+          <Route exact path="/productDetail" component={ProductDetail} /> */}
+          <Route exact path="/cart" component={Cart} />
         </Switch>
       </Router>
     );

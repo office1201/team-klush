@@ -31,6 +31,10 @@ class ArticleList extends Component {
     this.autoCarousel();
   }
 
+  componentWillUnmount() {
+    clearInterval(this.autoCarousel());
+  }
+
   render() {
     const { carouselId } = this.state;
     return (

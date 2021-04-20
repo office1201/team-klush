@@ -21,8 +21,6 @@ class MainSectionRecommend extends Component {
       });
   }
 
-  recommendCarousel = () => {};
-
   render() {
     const { recommendList } = this.state;
     return (
@@ -34,23 +32,21 @@ class MainSectionRecommend extends Component {
           <div className="recommendContainer">
             <h2>4월에 어울리는 향기</h2>
             <div className="recommendCarousel">
-              {recommendList &&
-                recommendList.map((recommend, idx) => {
-                  return (
-                    <ul className="recommendLists" key={recommend.id}>
-                      <li>
-                        <img
-                          src={recommend.image_url}
-                          alt="나만 알고싶은 향기 이미지"
-                        />
-                        <h3>{recommend.name}</h3>
-                        {/* <p>{recommend.name}</p> */}
-                        <p>{recommend.description}</p>
-                        <p>{recommend.price}</p>
-                      </li>
-                    </ul>
-                  );
-                })}
+              {recommendList.map((recommend, idx) => {
+                return (
+                  <ul className="recommendLists" key={recommend.id}>
+                    <li>
+                      <img
+                        src={recommend.image_url}
+                        alt="4월에 어울리는 향기 제품 이미지"
+                      />
+                      <h3>{recommend.name}</h3>
+                      <p>{recommend.description}</p>
+                      <p>{recommend.price}</p>
+                    </li>
+                  </ul>
+                );
+              })}
             </div>
           </div>
           <button className="nextButton" onClick={this.recommendCarousel}>

@@ -15,10 +15,9 @@ class CategoryProducts extends Component {
               return (
                 <ul key={main.id}>
                   <li>{main.name}</li>
-                  {main.sub_categories &&
-                    main.sub_categories.map(sub => {
-                      return <li key={sub.id}>{sub.name}</li>;
-                    })}
+                  {main.sub_categories.map(sub => {
+                    return <li key={sub.id}>{sub.name}</li>;
+                  })}
                 </ul>
               );
             })}
