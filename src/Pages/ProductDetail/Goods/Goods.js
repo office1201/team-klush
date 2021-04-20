@@ -70,7 +70,7 @@ class Goods extends Component {
             <div className="title">
               <span>{productData.product_name}</span>
               <button>
-                <i class="far fa-heart"></i>
+                <i class="far fa-heart" />
               </button>
             </div>
             <p>{productData.product_hashtag}</p>
