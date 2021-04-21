@@ -33,7 +33,11 @@ class ProductDetail extends Component {
 
   render() {
     const { productData } = this.state;
-
+    const MAPPING_OBJ = {
+      0: <ProductInfo productData={productData} />,
+      1: <Comment />,
+      2: <Refund />,
+    };
     return (
       <div className="ProductDetail">
         <Nav />
@@ -85,11 +89,7 @@ class ProductDetail extends Component {
     );
   }
 }
+
 export default ProductDetail;
 
-const MAPPING_OBJ = {
-  0: <ProductInfo />,
-  1: <Comment />,
-  2: <Refund />,
-};
 const CATEGORY = ['상품상세정보', '상품후기', '상품배송'];

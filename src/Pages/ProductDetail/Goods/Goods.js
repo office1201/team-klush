@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Goods.scss';
 
@@ -9,6 +10,27 @@ class Goods extends Component {
       product_quantity: 1,
     };
   }
+
+  goToCart = e => {
+    this.props.history.push('/cart');
+
+    fetch('http://10.58.2.24:8000/orders/cart', {
+      method: 'POST',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.7IuNAZmKKK3y38HWLkdy2AicMtGil-1w2NIBlDRTAZE',
+      },
+      body: JSON.stringify({
+        product_id: e.target.dataset.idx,
+        quantity: this.state.product_quantity,
+        option_id: e.target.dataset.idx,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      });
+  };
 
   inputValue = e => {
     const { value } = e.target;
@@ -51,10 +73,23 @@ class Goods extends Component {
                 alt="제품 상단 이미지"
               />
             </div>
-            <div className="imgSlide">
-              <ul>
-                <li></li>
+            <div
+              className="
+            "
+            >
+              <button>&lt;</button>
+              <ul className="moreThumnail">
+                <li>
+                  <img alt="제품사진1" />
+                </li>
+                <li>
+                  <img alt="제품사진2" />
+                </li>
+                <li>
+                  <img alt="제품사진3" />
+                </li>
               </ul>
+              <button>&gt;</button>
             </div>
           </div>
           <div className="infoWrap">
@@ -107,7 +142,12 @@ class Goods extends Component {
               </span>
             </div>
             <div className="buyBtn">
-              <button onClick={this.goToCart}>장바구니</button>
+              <button
+                onClick={this.goToCart}
+                data-idx={productData.product_options[0].id}
+              >
+                장바구니
+              </button>
               <Link to="/cart">주문하기</Link>
             </div>
           </div>
@@ -116,4 +156,4 @@ class Goods extends Component {
     );
   }
 }
-export default Goods;
+export default withRouter(Goods);
