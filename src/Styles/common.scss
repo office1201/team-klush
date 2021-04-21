@@ -17,6 +17,16 @@ button {
   outline: none;
 }
 
+.pmButton {
+  margin: 0 10px;
+  width: 30px;
+  line-height: 20px;
+  vertical-align: middle;
+  font-size: 15px;
+  font-family: 'Chivo', sans-serif;
+  background-color: white;
+}
+
 %flex-center {
   display: flex;
   justify-content: center;
@@ -27,3 +37,7 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+$light-gray: #d3d3d3;
+
+$dark-gray: #6d6d6d;

@@ -1,8 +1,10 @@
+@import '../../Styles/common.scss';
+
 .Cart {
   margin-top: 100px;
 
   main {
-    padding: 100px 400px;
+    padding: 50px 300px;
 
     .shoppingCart {
       display: flex;
@@ -33,42 +35,90 @@
         border-bottom: 1px solid black;
       }
 
-      .selectedProducts {
-        height: 100%;
+      table {
+        width: 100%;
 
-        .thread {
-          height: 20%;
-
-          ul {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            padding: 20px 10px;
-            height: 100%;
+        thead {
+          tr {
             border-bottom: 1px solid #bdbdbd;
 
-            li {
-              display: inline-block;
-              font-size: 50px;
+            th {
+              padding: 10px 0;
+              text-align: center;
+              font-size: 15px;
               font-family: 'Gothic A1', sans-serif;
             }
           }
         }
 
-        .body {
-          height: 80%;
-          ul {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            padding: 20px 10px;
-            height: 100%;
+        tbody {
+          tr {
             border-bottom: 1px solid #bdbdbd;
 
-            li {
-              font-size: 20px;
+            td {
+              text-align: center;
+              font-size: 15px;
+              font-family: 'Gothic A1', sans-serif;
             }
 
-            li:nth-child(1) {
-              width: 30px;
+            .product {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 30px 10px;
+
+              img {
+                width: 100px;
+                height: 100px;
+              }
+
+              .productInfo {
+                margin-left: 30px;
+
+                h3 {
+                  font-size: 15px;
+                }
+
+                p {
+                  color: #908d8d;
+                }
+              }
+            }
+
+            .quantity {
+              li {
+                padding: 10px 0;
+
+                .price {
+                  font-size: 16px;
+                  font-family: sans-serif;
+                  font-weight: bold;
+                }
+                span {
+                  width: 80px;
+                }
+                .count {
+                  display: inline-block;
+                  width: 155px;
+                  line-height: 42px;
+                  vertical-align: middle;
+                  border: 1px solid $light-gray;
+                  .minus {
+                    @extend .pmButton;
+                  }
+                  .inputCount {
+                    width: 30px;
+                    height: 20px;
+                    text-align: center;
+                    font-size: 15px;
+                    font-family: 'Gothic A1', sans-serif;
+                    border: none;
+                  }
+                  .plus {
+                    @extend .pmButton;
+                  }
+                }
+              }
             }
           }
         }
@@ -89,6 +139,35 @@
       font-size: 14px;
       font-family: 'Gothic A1', sans-serif;
       background-color: transparent;
+    }
+
+    .buttonContainer {
+      display: flex;
+      justify-content: center;
+      margin-top: 70px;
+
+      .shoppingContinue {
+        text-align: center;
+        margin-right: 30px;
+        width: 250px;
+        line-height: 70px;
+        vertical-align: middle;
+        border: 1px solid black;
+        font-family: 'Gothic A1', sans-serif;
+        font-size: 15px;
+        font-weight: bolder;
+      }
+      .order {
+        text-align: center;
+        width: 250px;
+        line-height: 70px;
+        vertical-align: middle;
+        background-color: black;
+        color: white;
+        font-family: 'Gothic A1', sans-serif;
+        font-size: 15px;
+        font-weight: bolder;
+      }
     }
   }
 }
