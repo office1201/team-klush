@@ -9,52 +9,53 @@ class Cart extends Component {
   constructor() {
     super();
     this.state = {
-      product_quantity: 1,
+      // product_quantity: 1,
       shoppingCarts: [],
       checked: false,
     };
   }
-  inputValue = e => {
-    const { value } = e.target;
+
+  inputValue = event => {
+    const { value } = event.target;
     this.setState({
       product_quantity: value,
     });
   };
+
   addValue = event => {
-    const { product_quantity, shoppingCarts } = this.state;
+    const { shoppingCarts } = this.state;
+    const { id } = event.target;
     let newCart = [...shoppingCarts];
-    newCart[event.target.id].quantity += 1;
-    if (shoppingCarts[event.target.id].quantity > 19) {
+
+    if (newCart[id].quantity > 19) {
       return;
+    } else {
+      newCart[id].quantity += 1;
     }
+
     this.setState({
-      product_quantity: product_quantity + 1,
       shoppingCarts: newCart,
     });
   };
-  minusValue = () => {
-    const { product_quantity } = this.state;
-    if (product_quantity < 2) {
+
+  minusValue = event => {
+    const { shoppingCarts } = this.state;
+    const { id } = event.target;
+    let newCart = [...shoppingCarts];
+
+    if (newCart[id].quantity < 2) {
       return;
+    } else {
+      newCart[id].quantity -= 1;
     }
-    this.setState({
-      product_quantity: product_quantity - 1,
-    });
-  };
 
-  // checked = () => {};
-
-  clickCheckBox = e => {
-    const isChecked = !this.state.checked;
     this.setState({
-      checked: isChecked,
+      shoppingCarts: newCart,
     });
-    console.log(this.state.checked);
   };
 
   componentDidMount() {
-    fetch('http://10.58.2.24:8000/orders/cart', {
-      method: 'GET',
+    fetch('/data/cartList.json', {
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.k8V9fYZNF2rrxKOSuD6rGL2QgVd1XOW-HnQOPuHoyiQ',
@@ -70,7 +71,6 @@ class Cart extends Component {
 
   render() {
     const { product_quantity, shoppingCarts } = this.state;
-    console.log('a: ', this.state.shoppingCarts);
     return (
       <div className="Cart">
         <Nav />
@@ -110,8 +110,20 @@ class Cart extends Component {
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td rowSpan={shoppingCarts.length + 1}>배송비 2,500원</td>
+                </tr>
                 {shoppingCarts.length !== 0 &&
                   shoppingCarts.map((cart, index) => {
+                    // const prices = 1000 * cart.quantity;
+                    // console.log(prices);
+
                     return (
                       <tr>
                         <td>
@@ -130,6 +142,7 @@ class Cart extends Component {
                             <span className="count">
                               <button
                                 className="minus"
+                                id={index}
                                 onClick={this.minusValue}
                               >
                                 -
@@ -149,10 +162,10 @@ class Cart extends Component {
                             </span>
                           </li>
                         </td>
-                        <td>금액</td>
-                        <td>복지혜택</td>
-                        <td>합계금액</td>
-                        <td rowSpan={cart.length - 1}>배송비 2,500원</td>
+                        <td>{1000 * cart.quantity} 원</td>
+                        <td>-</td>
+                        <td>{1000 * cart.quantity} 원</td>
+                        {/* <td rowSpan={cart.length}>배송비 2,500원</td> */}
                       </tr>
                     );
                   })}
@@ -161,7 +174,8 @@ class Cart extends Component {
             {/* {<div>장바구니에 담겨있는 상품이 없습니다.</div>} */}
             <div className="priceAll">
               <span>
-                총 {} 개의 금액 {} 원 + 배송비 {} = 총 주문금액 {} 원
+                총 {shoppingCarts.length} 개의 금액 {}원 + 배송비 2,500 원 = 총
+                주문금액 {} 원
               </span>
             </div>
           </div>
