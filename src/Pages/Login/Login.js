@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Nav from '../../Components/Nav/Nav';
 import './Login.scss';
 import '../../Styles/reset.scss';
 import '../../Styles/common.scss';
@@ -55,66 +56,69 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <section className="login">
-        <div className="loginContainer">
-          <h2>로그인</h2>
-          <form>
-            <div className="loginInput">
-              <input
-                onChange={this.handleInput}
-                type="text"
-                placeholder="아이디"
-                className={`inputId ${this.inputIdValidator(email)}`}
-                name="email"
-              />
-              <img
-                src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_id.png"
-                alt="아이디 이미지입니다"
-              />
-              <i
-                class={`far fa-check-circle ${this.inputIdValidator(email)}`}
-              />
-            </div>
-            <div className="loginInput">
-              <input
-                onChange={this.handleInput}
-                type="password"
-                placeholder="비밀번호"
-                className={`inputId ${this.inputPwValidator(password)}`}
-                name="password"
-              />
-              <img
-                src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_password.png"
-                alt="비밀번호 이미지입니다"
-              />
-              <i
-                className={`far fa-check-circle ${this.inputPwValidator(
-                  password
-                )}`}
-              />
-            </div>
-            <div className="loginSave">
-              <div className="save">
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                  아이디 저장
-                </label>
+      <>
+        <Nav />
+        <section className="login">
+          <div className="loginContainer">
+            <h2>로그인</h2>
+            <form>
+              <div className="loginInput">
+                <input
+                  onChange={this.handleInput}
+                  type="text"
+                  placeholder="아이디"
+                  className={`inputId ${this.inputIdValidator(email)}`}
+                  name="email"
+                />
+                <img
+                  src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_id.png"
+                  alt="아이디 이미지입니다"
+                />
+                <i
+                  class={`far fa-check-circle ${this.inputIdValidator(email)}`}
+                />
               </div>
-            </div>
-            <button
-              onClick={this.goToMain}
-              className={`loginBtn ${this.buttonValidator(email, password)}`}
-            >
-              <span>로그인</span>
-            </button>
-            <div className="loginMenu">
-              <button className="btnMenu">회원가입</button>
-              <button className="btnMenu">아이디 찾기</button>
-              <button className="btnMenu">비밀번호 찾기</button>
-            </div>
-          </form>
-        </div>
-      </section>
+              <div className="loginInput">
+                <input
+                  onChange={this.handleInput}
+                  type="password"
+                  placeholder="비밀번호"
+                  className={`inputId ${this.inputPwValidator(password)}`}
+                  name="password"
+                />
+                <img
+                  src="https://lush.co.kr/data/skin/front/howling/img/etc/icon_password.png"
+                  alt="비밀번호 이미지입니다"
+                />
+                <i
+                  className={`far fa-check-circle ${this.inputPwValidator(
+                    password
+                  )}`}
+                />
+              </div>
+              <div className="loginSave">
+                <div className="save">
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                    아이디 저장
+                  </label>
+                </div>
+              </div>
+              <button
+                onClick={this.goToMain}
+                className={`loginBtn ${this.buttonValidator(email, password)}`}
+              >
+                <span>로그인</span>
+              </button>
+              <div className="loginMenu">
+                <button className="btnMenu">회원가입</button>
+                <button className="btnMenu">아이디 찾기</button>
+                <button className="btnMenu">비밀번호 찾기</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </>
     );
   }
 }
