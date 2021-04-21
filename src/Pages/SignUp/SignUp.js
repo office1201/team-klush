@@ -1,102 +1,158 @@
 import React, { Component } from 'react';
+import SignUpList from './Components/SignUpList/SignUpList';
 import './SignUp.scss';
-import '../../Styles/reset.scss';
-import '../../Styles/common.scss';
 
 class SignUp extends Component {
   state = {
-    email: '',
-    password: '',
-    passwordCheck: '',
+    id: '',
+    pw: '',
+    pwCheck: '',
     username: '',
     nickname: '',
     emailAdress: '',
-    phone: '',
+    phoneNumber: '',
   };
-  // 1. 함수1: 인풋 값 받아오기
-  handleInput = e => {
-    const { name, value } = e.target;
+
+  handleInput = (index, e) => {
+    const { value } = e.target;
+    let name = '';
+    if (index === 0) name = 'id';
+    if (index === 1) name = 'pw';
+    if (index === 2) name = 'pwCheck';
+    if (index === 3) name = 'username';
+    if (index === 4) name = 'nickname';
+    if (index === 5) name = 'emailAdress';
+    if (index === 6) name = 'phoneNumber';
+
     this.setState({ [name]: value });
   };
-  // 2. 함수2: 아이디 검사
-  idValidator = email => {
-    if (email === '') return;
-    if (email !== '' && !email.includes('@')) return 'inputFail';
-    if (email.includes('@')) return 'inputSuccess';
+
+  idValidator = id => {
+    if (id === '') return;
+    if (id !== '' && !id.includes('@')) return 'inputFail';
+    if (id.includes('@')) return 'inputSuccess';
   };
-  // 3. 함수3: 비밀번호 검사
+
   pwValidatorOne = pw => {
     if (pw === '') return;
     if (pw.length <= 5) return 'inputFail';
     if (pw.length > 5) return 'inputSuccess';
   };
-  // 4. 함수4: 비밀번호 확인 검사
-  pwValidatorTwo = pwd => {
-    if (pwd === '') return;
-    if (pwd.length <= 5) return 'inputFail';
-    if (pwd.length > 5) return 'inputSuccess';
+
+  pwValidatorTwo = pwCheck => {
+    if (pwCheck === '') return;
+    if (pwCheck.length <= 5) return 'inputFail';
+    if (pwCheck.length > 5) return 'inputSuccess';
   };
-  // 5. 함수5: 이름(성함) 검사
-  nameValidator = name => {
-    if (name === '') return;
-    if (name.length <= 1) return 'inputFail';
-    if (name.length > 1) return 'inputSuccess';
+
+  nameValidator = username => {
+    if (username === '') return;
+    if (username.length <= 1) return 'inputFail';
+    if (username.length > 1) return 'inputSuccess';
   };
-  // 6. 함수6: 닉네임 검사
+
   nicknameValidator = nickname => {
     if (nickname === '') return;
     if (nickname.length <= 1) return 'inputFail';
     if (nickname.length > 1) return 'inputSuccess';
   };
-  // 7. 함수7: 이메일 검사
+
   emailValidator = emailAdress => {
     if (emailAdress === '') return;
     if (emailAdress !== '' && !emailAdress.includes('@')) return 'inputFail';
     if (emailAdress.includes('@')) return 'inputSuccess';
   };
-  // 8. 함수8: 휴대폰 번호 검사
-  phoneValidator = phone => {
-    if (phone === '') return;
-    if (phone.length <= 10) return 'inputFail';
-    if (phone.length > 10) return 'inputSuccess';
+
+  phoneValidator = phoneNumber => {
+    if (phoneNumber === '') return;
+    if (phoneNumber.length <= 10) return 'inputFail';
+    if (phoneNumber.length > 10) return 'inputSuccess';
   };
-  // 9. 함수9: 회원가입 버튼 검사
+
   buttonValidator = (
-    email,
-    password,
-    passwordCheck,
+    id,
+    pw,
+    pwCheck,
     username,
     nickname,
     emailAdress,
-    phone
+    phoneNumber
   ) => {
     if (
-      email.includes('@') &&
-      password.length > 5 &&
-      passwordCheck.length > 5 &&
+      id.includes('@') &&
+      pw.length > 5 &&
+      pwCheck.length > 5 &&
       username.length > 5 &&
       nickname.length > 1 &&
       emailAdress.includes('@') &&
-      phone.length > 10
+      phoneNumber.length > 10
     )
       return 'activeBtn';
     return '';
   };
+
+  checkLogin = e => {
+    const { id, pw, username, nickname, emailAdress, phoneNumber } = this.state;
+    e.preventDefault();
+    fetch('http://10.58.2.24:8000/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        account_name: id,
+        password: pw,
+        name: username,
+        nickname: nickname,
+        email: emailAdress,
+        phone_number: phoneNumber,
+      }),
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        if (response.MESSAGE === 'SUCCESS') {
+          alert('로그인 성공');
+          this.props.history.push('/');
+        } else {
+          alert('로그인 실패');
+        }
+      });
+  };
+
+  mapValidatorToIndex = {
+    0: this.idValidator,
+    1: this.pwValidatorOne,
+    2: this.pwValidatorTwo,
+    3: this.nameValidator,
+    4: this.nicknameValidator,
+    5: this.emailValidator,
+    6: this.phoneValidator,
+  };
+
+  mapStateToIndex = {
+    0: 'id',
+    1: 'pw',
+    2: 'pwCheck',
+    3: 'username',
+    4: 'nickname',
+    5: 'emailAdress',
+    6: 'phoneNumber',
+  };
+
   render() {
     const {
-      email,
-      password,
-      passwordCheck,
+      id,
+      pw,
+      pwCheck,
       username,
       nickname,
       emailAdress,
-      phone,
+      phoneNumber,
     } = this.state;
+
     return (
-      <section className="signUp">
-        <div className="signInfo">
-          <h2>JOIN US</h2>
-          <div>
+      <section className="signup">
+        <div className="signupInfo">
+          <h2 className="singupInfoTitle">JOIN US</h2>
+          <div className="signupInfoDescription">
             <span>약관동의</span>
             <span>＞</span>
             <span>정보입력</span>
@@ -112,160 +168,32 @@ class SignUp extends Component {
             </p>
           </div>
           <ul className="signFormTable">
-            <li className="table">
-              <div className="tableName">
-                <span className="tableIcon">■</span>
-                <span>아이디</span>
-              </div>
-              <div className="tableInput">
-                {/* 1. 이메일 입력 검사하기*/}
-                <input
-                  onChange={this.handleInput}
-                  type="text"
-                  name="email"
-                  className={this.idValidator(email)}
+            {signUpList.map((comment, index) => {
+              return (
+                <SignUpList
+                  key={comment.id}
+                  index={index}
+                  type={comment.type}
+                  title={comment.title}
+                  placeholder={comment.placeholder}
+                  handleInput={this.handleInput}
+                  validator={this.mapValidatorToIndex[index]}
+                  stateName={this.state[this.mapStateToIndex[index]]}
                 />
-                <span className={`idError ${this.idValidator(email)}`}>
-                  {email.includes('@')
-                    ? '사용 가능한 이메일 입니다.'
-                    : '이메일을 입력해 주세요.'}
-                </span>
-              </div>
-            </li>
-            <li className="table">
-              <div className="tableName">
-                <span className="tableIcon">■</span>
-                <span>비밀번호</span>
-              </div>
-              <div className="tableInput">
-                {/* 2. 비밀번호 입력 검사하기*/}
-                <input
-                  onChange={this.handleInput}
-                  type="password"
-                  name="password"
-                  className={this.pwValidatorOne(password)}
-                />
-                <span className={`idError ${this.pwValidatorOne(password)}`}>
-                  {password.length > 5
-                    ? '사용 가능한 비밀번호 입니다.'
-                    : '비밀번호를 입력해 주세요.(예: 5자리 이상)'}
-                </span>
-              </div>
-            </li>
-            <li className="table">
-              <div className="tableName">
-                <span className="tableIcon">■</span>
-                <span>비밀번호 확인</span>
-              </div>
-              <div className="tableInput">
-                {/* 3. 비밀번호 입력 확인 검사하기 */}
-                <input
-                  onChange={this.handleInput}
-                  type="password"
-                  name="passwordCheck"
-                  className={this.pwValidatorTwo(passwordCheck)}
-                />
-                <span
-                  className={`idError ${this.pwValidatorTwo(passwordCheck)}`}
-                >
-                  {passwordCheck.length > 5
-                    ? '사용 가능한 비밀번호입니다.'
-                    : '비밀번호를 입력해 주세요.(예: 5자리 이상)'}
-                </span>
-              </div>
-            </li>
-            <li className="table">
-              <div className="tableName">
-                <span className="tableIcon">■</span>
-                <span>이름</span>
-              </div>
-              <div className="tableInput">
-                {/* 4. 이름 검사하기*/}
-                <input
-                  onChange={this.handleInput}
-                  type="text"
-                  name="username"
-                  className={this.nameValidator(username)}
-                />
-                <span className={`idError ${this.nameValidator(username)}`}>
-                  {username.length > 1
-                    ? `사용 가능한 이름입니다.`
-                    : '올바른 이름을 작성해 주세요.'}
-                </span>
-              </div>
-            </li>
-            <li className="table">
-              <div className="tableName">
-                <span className="tableIcon">■</span>
-                <span>닉네임</span>
-              </div>
-              <div className="tableInput">
-                {/* 5. 닉네임 검사하기 */}
-                <input
-                  onChange={this.handleInput}
-                  type="text"
-                  name="nickname"
-                  className={this.nicknameValidator(nickname)}
-                />
-                <span className={`idError ${this.nicknameValidator(nickname)}`}>
-                  {nickname.length > 1
-                    ? `사용 가능한 닉네임입니다.`
-                    : '올바른 이름을 작성해 주세요.'}
-                </span>
-              </div>
-            </li>
-            <li className="table">
-              <div className="tableName">
-                <span className="tableIcon">■</span>
-                <span>이메일</span>
-              </div>
-              <div className="tableInput">
-                {/* 6. 이메일 검사히기 */}
-                <input
-                  onChange={this.handleInput}
-                  type="email"
-                  name="emailAdress"
-                  className={this.emailValidator(emailAdress)}
-                />
-                <span className={`idError ${this.emailValidator(emailAdress)}`}>
-                  {emailAdress.includes('@')
-                    ? '사용 가능한 이메일 주소입니다.'
-                    : '이메일 주소를 입력해 주세요.'}
-                </span>
-              </div>
-            </li>
-            <li className="table">
-              <div className="tableName">
-                <span className="tableIcon">■</span>
-                <span>휴대폰번호</span>
-              </div>
-              {/* 7. 휴대폰 검사하기 */}
-              <div className="tableInput">
-                <input
-                  onChange={this.handleInput}
-                  type="text"
-                  placeholder="- 없이 입력하세요."
-                  name="phone"
-                  className={this.phoneValidator(phone)}
-                />
-                <span className={`idError ${this.phoneValidator(phone)}`}>
-                  {phone.length > 10
-                    ? '사용 가능한 휴대폰 번호입니다.'
-                    : '올바른 이름을 작성해 주세요.'}
-                </span>
-              </div>
-            </li>
+              );
+            })}
           </ul>
           <li className="signBtn">
             <button
+              onClick={this.checkLogin}
               className={`btn ${this.buttonValidator(
-                email,
-                password,
-                passwordCheck,
+                id,
+                pw,
+                pwCheck,
                 username,
                 nickname,
                 emailAdress,
-                phone
+                phoneNumber
               )}`}
             >
               회원가입
@@ -278,3 +206,48 @@ class SignUp extends Component {
 }
 
 export default SignUp;
+
+const signUpList = [
+  {
+    id: 1,
+    type: 'text',
+    title: '아이디',
+    placeholder: null,
+  },
+  {
+    id: 2,
+    type: 'password',
+    title: '비밀번호',
+    placeholder: null,
+  },
+  {
+    id: 3,
+    type: 'password',
+    title: '비밀번호 확인',
+    placeholder: null,
+  },
+  {
+    id: 4,
+    type: 'text',
+    title: '이름',
+    placeholder: null,
+  },
+  {
+    id: 5,
+    type: 'text',
+    title: '닉네임',
+    placeholder: null,
+  },
+  {
+    id: 6,
+    type: 'email',
+    title: '이메일',
+    placeholder: null,
+  },
+  {
+    id: 7,
+    type: 'text',
+    title: '휴대폰 번호',
+    placeholder: '- 없이 입력하세요.',
+  },
+];
