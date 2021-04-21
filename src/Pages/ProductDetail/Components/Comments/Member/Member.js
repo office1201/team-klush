@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Comment from '../Comment';
 import './Member.scss';
 
 class Member extends Component {
@@ -6,6 +7,7 @@ class Member extends Component {
     comment: '',
     commentList: [],
     dates: '',
+    commentsList: [],
   };
 
   handleInput = e => {
@@ -13,13 +15,11 @@ class Member extends Component {
     this.setState({ comment: value });
   };
 
-  onSubmitEnter = e => {
+  onSubmitClick = e => {
     e.preventDefault();
-    if (e.key === 'Enter') this.handleAddComment();
-  };
-
-  onSubmitClick = () => {
-    this.handleAddComment();
+    this.state.comment.length > 10
+      ? this.handleAddComment()
+      : alert(`최소 10자리 이상 작성해 주세요.`);
   };
 
   handleAddComment = () => {
@@ -40,15 +40,25 @@ class Member extends Component {
       }
     );
   };
+  // 통신
+  componentDidMount() {
+    fetch(``)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentsList: data.results,
+        });
+      });
+  }
 
   render() {
-    const { commentList, dates } = this.state;
+    const { commentList, dates, commentsList } = this.state;
     return (
       <section>
         <div className="comment">
           <h1>product Reviews </h1>
           <p>나만의 꿀팁이나 제품을 사용하는 생생한 모습을 보여주세요!</p>
-          <form onSubmit={this.onSubmitEnter} onKeyUp={this.onSubmitEnter}>
+          <form>
             <div className="commentScore">
               <span>평가</span>
               <label>
@@ -92,6 +102,9 @@ class Member extends Component {
               </button>
             </div>
           </form>
+          {commentsList.map(comment => {
+            return <Comment key={comment.id} comment={comment} />;
+          })}
           <div className="commentBoxes">
             {commentList.map(comment => {
               return (
