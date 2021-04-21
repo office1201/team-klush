@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Card from './Component/Card';
+import Sort from './Component/Sort';
 import { PRODUCTS_API } from '../../config';
 import './ProductList.scss';
 
@@ -37,6 +38,12 @@ class ProductList extends Component {
             <div className="headBox">
               <div className="headName">
                 <h1>솝</h1>
+                <form>
+                  <select name="sorting">
+                    <option>낮은가격순</option>
+                    <option>높은가격순</option>
+                  </select>
+                </form>
               </div>
               <ul>
                 <li>솝(20)</li>
