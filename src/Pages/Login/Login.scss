@@ -1,0 +1,124 @@
+@import '../../Styles/common.scss';
+
+.login {
+  @extend %flex-all-center;
+  margin: 50px 0px;
+  padding-bottom: 50px;
+
+  .loginContainer {
+    padding: 50px 0px;
+    text-align: center;
+
+    h2 {
+      color: #222222;
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      img:nth-child(2),
+      img:nth-child(5) {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        bottom: 35px;
+        right: 130px;
+      }
+
+      .far {
+        position: relative;
+        left: 130px;
+        bottom: 33px;
+        font-size: 15px;
+      }
+
+      .loginInput {
+        height: 60px;
+      }
+
+      .inputId {
+        width: 100%;
+        height: 50px;
+        padding: 0px 0px 0px 44px;
+        border: 1px solid #bebebe;
+      }
+
+      & .inputId:focus {
+        border: 1px solid black;
+      }
+
+      & .inputId.inputFail {
+        border: 1px solid red;
+      }
+
+      & .inputId.inputSuccess {
+        border: 1px solid green;
+      }
+
+      .far {
+        border: none;
+      }
+
+      & .far.inputFail {
+        color: red;
+      }
+      & .far.inputSuccess {
+        color: green;
+      }
+
+      .loginSave {
+        display: flex;
+
+        .save {
+          margin-bottom: 20px;
+          font-size: 14px;
+          right: 110px;
+          color: #8f8f8f;
+
+          label {
+            display: flex;
+            align-items: center;
+          }
+
+          .checkbox {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .loginBtn,
+    .isActiveBtn {
+      width: 320px;
+      height: 55px;
+      color: white;
+
+      span {
+        font-size: 16px;
+      }
+    }
+    .loginBtn {
+      background-color: silver;
+    }
+    .btnSuccess {
+      background-color: black;
+      cursor: pointer;
+    }
+    .loginMenu {
+      margin-top: 20px;
+
+      .btnMenu {
+        background-color: transparent;
+        padding: 0px 10px;
+      }
+
+      .btnMenu:nth-child(2) {
+        border-left: 1px solid;
+        border-right: 1px solid;
+      }
+    }
+  }
+}
