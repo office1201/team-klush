@@ -17,12 +17,10 @@ class MainSectionRecommend extends Component {
           recommendList: data.results,
         });
       });
-    // console.log('data: ', this.state.recommendList);
   }
 
   render() {
     const { recommendList } = this.state;
-    // console.log('data: ', this.state.recommendList);
     return (
       <section className="MainSectionRecommend">
         <div className="MainSectionRecommendWrapper">
@@ -37,7 +35,6 @@ class MainSectionRecommend extends Component {
                       alt="나만 알고싶은 향기 이미지"
                     />
                     <h3>{recommend.name}</h3>
-                    {/* <p>{recommend.name}</p> */}
                     <p>{recommend.description}</p>
                     <p>{recommend.price} 원</p>
                   </li>
