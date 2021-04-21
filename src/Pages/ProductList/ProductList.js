@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
-import PrdLists from './Component/PrdLists';
+import Card from './Component/Card';
 import { PRODUCTS_API } from '../../config';
 import './ProductList.scss';
 
@@ -50,7 +50,7 @@ class ProductList extends Component {
             <section>
               <ul>
                 {productLists.map(product => {
-                  return <PrdLists key={product.id} product={product} />;
+                  return <Card key={product.id} product={product} />;
                 })}
               </ul>
             </section>

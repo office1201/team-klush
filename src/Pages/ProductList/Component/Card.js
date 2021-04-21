@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import './Card.scss';
+import './Cards.scss';
 
 class Card extends Component {
-
   goToDetail = () => {
     this.props.history.push(`/productDetail/${this.props.id}`);
   };
