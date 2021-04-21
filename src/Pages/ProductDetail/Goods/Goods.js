@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { PRDDETAIL_API } from '../../../config';
 import './Goods.scss';
 
 class Goods extends Component {
@@ -79,7 +78,7 @@ class Goods extends Component {
               </li>
               <li>
                 <strong>상품무게</strong>
-                <span>{productData.product_options[0].weight}</span>
+                <span>{productData.product_options[0].weight}g</span>
               </li>
               <li>
                 <strong>구매수량</strong>
@@ -108,7 +107,7 @@ class Goods extends Component {
               </span>
             </div>
             <div className="buyBtn">
-              <Link to="/cart">장바구니</Link>
+              <button onClick={this.goToCart}>장바구니</button>
               <Link to="/cart">주문하기</Link>
             </div>
           </div>

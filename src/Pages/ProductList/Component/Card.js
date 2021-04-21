@@ -4,12 +4,13 @@ import './Cards.scss';
 
 class Card extends Component {
   goToDetail = () => {
-    this.props.history.push(`/productDetail/${this.props.id}`);
+    this.props.history.push(`/products/${this.props.id}`);
+    console.log('아이디' + this.props.id);
   };
 
   render() {
     const { product } = this.props;
-    console.log(this.props.id);
+    // console.log(this.props.id);
 
     return (
       <div className="Cards">

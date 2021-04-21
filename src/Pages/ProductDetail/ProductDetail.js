@@ -6,6 +6,7 @@ import ScoreReview from './Component/ScoreReview/ScoreReview';
 import Comment from './Component/Comments/Comment';
 import ProductInfo from './Component/ProductInfo/ProductInfo';
 import Refund from './Component/Refund/Refund';
+import { PRDDETAIL_API } from '../../config';
 import './ProductDetail.scss';
 
 class ProductDetail extends Component {
@@ -15,21 +16,24 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
-    fetch(`/datas/productData.json`)
+    fetch(`${PRDDETAIL_API}/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          productData: data.result[0],
+          productData: data.results[0],
         });
       });
   }
+
   handleComponent = idx => {
     this.setState({
       currentId: idx,
     });
   };
+
   render() {
     const { productData } = this.state;
+
     return (
       <div className="ProductDetail">
         <Nav />
@@ -81,7 +85,6 @@ class ProductDetail extends Component {
     );
   }
 }
-
 export default ProductDetail;
 
 const MAPPING_OBJ = {
@@ -89,5 +92,4 @@ const MAPPING_OBJ = {
   1: <Comment />,
   2: <Refund />,
 };
-
 const CATEGORY = ['상품상세정보', '상품후기', '상품배송'];
