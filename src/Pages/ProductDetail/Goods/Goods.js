@@ -7,19 +7,9 @@ class Goods extends Component {
   constructor() {
     super();
     this.state = {
-      // productData: [],
       product_quantity: 1,
     };
   }
-  // componentDidMount() {
-  //   fetch('/datas/productData.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         productData: data.results[0],
-  //       });
-  //     });
-  // }
 
   inputValue = e => {
     const { value } = e.target;
@@ -49,7 +39,9 @@ class Goods extends Component {
   };
 
   render() {
-    const { productData, product_quantity } = this.props;
+    const { productData } = this.props;
+    const { product_quantity } = this.state;
+    console.log(productData);
     return (
       productData.length !== 0 && (
         <section className="Goods">
@@ -60,7 +52,6 @@ class Goods extends Component {
                 alt="제품 상단 이미지"
               />
             </div>
-
             <div className="imgSlide">
               <ul>
                 <li></li>

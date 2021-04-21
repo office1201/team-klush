@@ -49,8 +49,8 @@ class ProductList extends Component {
             </div>
             <section>
               <ul>
-                {productLists.map(product => {
-                  return <Card key={product.id} product={product} />;
+                {productLists.map((product, idx) => {
+                  return <Card key={idx} id={product.id} product={product} />;
                 })}
               </ul>
             </section>

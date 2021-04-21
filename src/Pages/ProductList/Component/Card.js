@@ -17,7 +17,6 @@ class Card extends Component {
           <img src={product.img_url} alt="제품 사진" />
           <div className="conditionBox">
             {product.label.map(label => {
-              // console.log(label);
               return (
                 <React.Fragment key={label}>
                   {label.type === 'new' && <span className="new">New</span>}

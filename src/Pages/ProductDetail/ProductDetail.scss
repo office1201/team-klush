@@ -2,6 +2,7 @@
 @import '../../Styles/common.scss';
 
 .ProductDetail {
+  margin-top: 100px;
   .plusReview {
     width: 960px;
     height: 233px;
@@ -10,10 +11,8 @@
     justify-content: center;
 
     .photoReview {
-      // width: 745px;
       width: 60%;
       height: 188px;
-      // background-color: orangered;
 
       span {
         font-size: 20px;
@@ -50,14 +49,11 @@
       }
     }
     .scoreContainer {
-      // width: 425px;
       width: 40%;
       height: 164px;
       border: 1px solid $light-gray;
       margin-top: 24px;
       margin-left: 5px;
-      // border;
-      // background-color: orchid;
       display: flex;
     }
     .average {
@@ -85,9 +81,7 @@
 
   .detailContainer {
     width: 960px;
-    // height: 3796px;
     margin: 0 auto;
-    // background-color: yellowgreen;
 
     .tab {
       width: 100%;
