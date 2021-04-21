@@ -8,6 +8,8 @@ class Goods extends Component {
     super();
     this.state = {
       product_quantity: 1,
+      imgId: 0,
+      isModalOn: false,
     };
   }
 
@@ -30,6 +32,19 @@ class Goods extends Component {
       .then(res => {
         console.log(res);
       });
+  };
+
+  handleModal = e => {
+    this.setState({
+      isModalOn: !this.state.isModalOn,
+    });
+  };
+
+  isClick = idx => {
+    this.setState({
+      imgId: idx,
+    });
+    console.log(idx);
   };
 
   inputValue = e => {
@@ -61,7 +76,7 @@ class Goods extends Component {
 
   render() {
     const { productData } = this.props;
-    const { product_quantity } = this.state;
+    const { product_quantity, imgId } = this.state;
     console.log(productData);
     return (
       productData.length !== 0 && (
@@ -69,25 +84,28 @@ class Goods extends Component {
           <div>
             <div className="mainImage">
               <img
-                src={productData.product_thumbnail_image}
+                src={
+                  imgId
+                    ? productData.product_image[imgId]
+                    : productData.product_thumbnail_image
+                }
                 alt="제품 상단 이미지"
               />
             </div>
-            <div
-              className="
-            "
-            >
+            <div className="imgSlide">
               <button>&lt;</button>
               <ul className="moreThumnail">
-                <li>
-                  <img alt="제품사진1" />
-                </li>
-                <li>
-                  <img alt="제품사진2" />
-                </li>
-                <li>
-                  <img alt="제품사진3" />
-                </li>
+                {productData.product_image.map((product, idx) => {
+                  return (
+                    <li
+                      key={idx}
+                      onClick={() => this.isClick(idx)}
+                      className={idx === imgId ? 'Active' : ''}
+                    >
+                      <img src={product} alt="제품사진" />
+                    </li>
+                  );
+                })}
               </ul>
               <button>&gt;</button>
             </div>
@@ -103,7 +121,9 @@ class Goods extends Component {
               <p>{productData.product_hashtag}</p>
             </div>
             <span>Good to Know </span>
-            <button className="goodKnow">?</button>
+            <button className="goodKnow" onClick={this.handleModal}>
+              ?
+            </button>
             <ul className="pwBox">
               <li>
                 <strong>판매가</strong>

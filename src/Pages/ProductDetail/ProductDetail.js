@@ -16,7 +16,14 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
-    fetch(`${PRDDETAIL_API}/${this.props.match.params.id}`)
+    // fetch(`${PRDDETAIL_API}/${this.props.match.params.id}`)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       productData: data.results[0],
+    //     });
+    //   });
+    fetch(`/datas/productData.json`)
       .then(res => res.json())
       .then(data => {
         this.setState({

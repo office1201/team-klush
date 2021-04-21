@@ -32,14 +32,28 @@
       margin-top: 20px;
 
       ul {
-        border: 1px solid black;
-        width: 240px;
+        width: 277px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         li {
-          display: inline-block;
-          border: 1px solid black;
-          width: 65px;
-          height: 65px;
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          img {
+            width: 65px;
+            height: 65px;
+            border: 1px solid white;
+            border-radius: 5px;
+          }
         }
+        .Active {
+          border: 1px solid black;
+          border-radius: 5px;
+        }
+      }
+
+      button {
+        background-color: white;
       }
     }
   }
