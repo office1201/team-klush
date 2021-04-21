@@ -3,11 +3,7 @@ import Member from './Member/Member';
 
 class Comments extends Component {
   render() {
-    return (
-      <>
-        <Member />
-      </>
-    );
+    return <Member />;
   }
 }
 

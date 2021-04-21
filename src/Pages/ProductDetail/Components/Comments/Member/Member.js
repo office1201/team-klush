@@ -23,18 +23,22 @@ class Member extends Component {
   };
 
   handleAddComment = () => {
+    const { commentList, comment } = this.state;
     const date = [
       new Date().getFullYear(),
       new Date().getMonth(),
       new Date().getDate(),
     ];
-
-    const { commentList, comment } = this.state;
-    this.setState({
-      commentList: [...commentList, { comment: comment }],
-      comment: '',
-      dates: date,
-    });
+    this.setState(
+      {
+        commentList: [...commentList, { comment: comment }],
+        comment: '',
+        dates: date,
+      },
+      () => {
+        alert('추가되었습니다.');
+      }
+    );
   };
 
   render() {
