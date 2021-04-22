@@ -7,17 +7,15 @@ class Footer extends Component {
     return (
       <footer className="Footer">
         <section className="footerImages">
-          <div>
-            <img
-              src="http://img.lush.co.kr/images/core/footer-icons.svg"
-              alt=""
-            />
-          </div>
+          <img
+            src="http://img.lush.co.kr/images/core/footer-icons.svg"
+            alt="#"
+          />
         </section>
         <section className="footerMain">
           <div className="footerLog">
             <span>KLUSH</span>
-            <div class="snsLink">
+            <div className="snsLink">
               <ul>
                 <li></li>
                 <li></li>
