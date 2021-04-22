@@ -1,37 +1,22 @@
 import React, { Component } from 'react';
-import './PrdLists.scss';
+import { withRouter } from 'react-router-dom';
+import './Cards.scss';
 
-class PrdLists extends Component {
-  handleInput = id => {
-    // console.log(id);
+class Card extends Component {
+  goToDetail = () => {
+    this.props.history.push(`/products/${this.props.id}`);
+    console.log('아이디' + this.props.id);
   };
-
-  // goToDetail = value => {
-  //   fetch('api주소', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       id: value,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       // console.log('결과:', data);
-  //       if (data['MESSAGE'] === 'SUCCESS') {
-  //         alert('성공!');
-  //         this.props.history.push('/ProductDetail');
-  //       }
-  //     });
-  // };
 
   render() {
     const { product } = this.props;
+
     return (
-      <div className="PrdLists">
-        <li onClick={() => this.handleInput(product.id)} className={product.id}>
-          <img src={product.img_url} alt="제품 사진" />
+      <div className="Cards">
+        <li onClick={this.goToDetail} className={product.id}>
+          <img src={product.image_url} alt="제품 사진" />
           <div className="conditionBox">
             {product.label.map(label => {
-              // console.log(label);
               return (
                 <React.Fragment key={label}>
                   {label.type === 'new' && <span className="new">New</span>}
@@ -46,7 +31,7 @@ class PrdLists extends Component {
           <div className="prdInfo">
             <span className="Name">{product.name}</span>
             <span className="hashtag">{product.description}</span>
-            <span className="price">{product.price}</span>
+            <span className="price">&#8361;{product.price}</span>
           </div>
         </li>
       </div>
@@ -54,4 +39,4 @@ class PrdLists extends Component {
   }
 }
 
-export default PrdLists;
+export default withRouter(Card);

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Comment from '../Comment';
 import { withRouter } from 'react-router-dom';
-import { COMMENT_API } from '../../../../../config';
-import { COMMENTS_API } from '../../../../../config';
-import { STAR_API } from '../../../../../config';
+import Comment from '../Comment';
+import { COMMENT_API, STAR_API } from '../../../../../config';
 import './Member.scss';
 
 class Member extends Component {
@@ -59,7 +57,7 @@ class Member extends Component {
             Authorization: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.k8V9fYZNF2rrxKOSuD6rGL2QgVd1XOW-HnQOPuHoyiQ`,
           },
           body: JSON.stringify({
-            product_id: 11,
+            product_id: this.props.match.params.id,
             content: comment,
           }),
         }).then(res => res.json());
@@ -70,7 +68,7 @@ class Member extends Component {
             Authorization: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NX0.1k9n4j4bUGXO3owMyxQsbk6ZeRopHo6npFNM8Z4JP2U`,
           },
           body: JSON.stringify({
-            product_id: 10,
+            product_id: this.props.match.params.id,
             rate: starRate,
           }),
         }).then(res => res.json());
@@ -79,13 +77,15 @@ class Member extends Component {
   };
 
   componentDidMount() {
-    fetch(`${COMMENTS_API}/${this.props.match.params.id}`)
+    fetch(`${COMMENT_API}/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         this.setState({
           commentsList: data.results,
         });
       });
+
     fetch(`${STAR_API}`)
       .then(res => res.json())
       .then(data => {
@@ -98,7 +98,7 @@ class Member extends Component {
   render() {
     const { commentList, dates, commentsList, star } = this.state;
     return (
-      <section>
+      <section className="section">
         <div className="comment">
           <h1>product Reviews </h1>
           <p>나만의 꿀팁이나 제품을 사용하는 생생한 모습을 보여주세요!</p>

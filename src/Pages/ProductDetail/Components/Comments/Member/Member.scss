@@ -1,6 +1,4 @@
-section {
-  width: 100%;
-  height: 440px;
+.section {
   border-bottom: 1px solid silver;
 
   h1 {
@@ -90,8 +88,6 @@ section {
     }
   }
   .commentBoxes {
-    height: 130px;
-
     .commentBox {
       display: flex;
       padding: 23px 20px;

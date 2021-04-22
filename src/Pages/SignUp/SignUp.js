@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import SignUpList from './Components/SignUpList/SignUpList';
 import { SIGNUP_API } from '../../config';
+import Nav from '../../Components/Nav/Nav';
+import Footer from '../../Components/Footer/Footer';
+import SignUpList from './Components/SignUpList/SignUpList';
 import './SignUp.scss';
 
 class SignUp extends Component {
@@ -30,8 +32,8 @@ class SignUp extends Component {
 
   idValidator = id => {
     if (id === '') return;
-    if (id !== '' && !id.includes('@')) return 'inputFail';
-    if (id.includes('@')) return 'inputSuccess';
+    if (id !== '' && id.includes('@')) return 'inputFail';
+    if (id.length > 2) return 'inputSuccess';
   };
 
   pwValidatorOne = pw => {
@@ -109,11 +111,11 @@ class SignUp extends Component {
       .then(data => data.json())
       .then(data => {
         if (data.MESSAGE === 'SUCCESS') {
-          alert('로그인 성공');
+          alert('회원가입 성공');
           this.props.history.push('/');
           localStorage.setItem('token', data.TOKEN);
         } else {
-          alert('로그인 실패');
+          alert('회원가입 실패');
         }
       });
   };
@@ -150,58 +152,62 @@ class SignUp extends Component {
     } = this.state;
 
     return (
-      <section className="signup">
-        <div className="signupInfo">
-          <h2 className="singupInfoTitle">JOIN US</h2>
-          <div className="signupInfoDescription">
-            <span>약관동의</span>
-            <span>＞</span>
-            <span>정보입력</span>
-            <span>＞</span>
-            <span>가입완료</span>
+      <>
+        <Nav />
+        <section className="signup">
+          <div className="signupInfo">
+            <h2 className="singupInfoTitle">JOIN US</h2>
+            <div className="signupInfoDescription">
+              <span>약관동의</span>
+              <span>＞</span>
+              <span>정보입력</span>
+              <span>＞</span>
+              <span>가입완료</span>
+            </div>
           </div>
-        </div>
-        <form className="signForm">
-          <div className="signFormInfo">
-            <h3>기본정보</h3>
-            <p>
-              <span>■</span>표시는 반드시 입력하셔야 하는 항목입니다.
-            </p>
-          </div>
-          <ul className="signFormTable">
-            {signUpList.map((comment, index) => {
-              return (
-                <SignUpList
-                  key={comment.id}
-                  index={index}
-                  type={comment.type}
-                  title={comment.title}
-                  placeholder={comment.placeholder}
-                  handleInput={this.handleInput}
-                  validator={this.mapValidatorToIndex[index]}
-                  stateName={this.state[this.mapStateToIndex[index]]}
-                />
-              );
-            })}
-          </ul>
-          <li className="signBtn">
-            <button
-              onClick={this.checkLogin}
-              className={`btn ${this.buttonValidator(
-                id,
-                pw,
-                pwCheck,
-                username,
-                nickname,
-                emailAdress,
-                phoneNumber
-              )}`}
-            >
-              회원가입
-            </button>
-          </li>
-        </form>
-      </section>
+          <form className="signForm">
+            <div className="signFormInfo">
+              <h3>기본정보</h3>
+              <p>
+                <span>■</span>표시는 반드시 입력하셔야 하는 항목입니다.
+              </p>
+            </div>
+            <ul className="signFormTable">
+              {signUpList.map((comment, index) => {
+                return (
+                  <SignUpList
+                    key={comment.id}
+                    index={index}
+                    type={comment.type}
+                    title={comment.title}
+                    placeholder={comment.placeholder}
+                    handleInput={this.handleInput}
+                    validator={this.mapValidatorToIndex[index]}
+                    stateName={this.state[this.mapStateToIndex[index]]}
+                  />
+                );
+              })}
+            </ul>
+            <li className="signBtn">
+              <button
+                onClick={this.checkLogin}
+                className={`btn ${this.buttonValidator(
+                  id,
+                  pw,
+                  pwCheck,
+                  username,
+                  nickname,
+                  emailAdress,
+                  phoneNumber
+                )}`}
+              >
+                회원가입
+              </button>
+            </li>
+          </form>
+        </section>
+        <Footer />
+      </>
     );
   }
 }

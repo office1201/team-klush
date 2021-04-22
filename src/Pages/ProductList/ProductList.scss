@@ -5,15 +5,12 @@
 
   .subVisual {
     background-image: url('https://images.unsplash.com/photo-1470100568678-c2bc2ba890c1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80');
-    // background-color: blueviolet;
+
     width: 100vw;
     height: 500px;
 
     flex-direction: column;
     @extend %flex-all-center;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
 
     .mainTxt {
       font-size: 68px;
@@ -27,8 +24,6 @@
   }
 
   .view {
-    padding-bottom: 100px;
-
     .headBox {
       width: 1180px;
       margin: 0 auto;
@@ -37,7 +32,8 @@
         width: 100%;
         margin-top: 70px;
         border-bottom: 4px solid black;
-
+        display: flex;
+        justify-content: space-between;
         h1 {
           font-size: 28px;
           padding-bottom: 15px;
