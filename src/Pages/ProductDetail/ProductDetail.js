@@ -16,6 +16,7 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
+    console.log(`${PRDDETAIL_API}/${this.props.match.params.id}`);
     fetch(`${PRDDETAIL_API}/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
