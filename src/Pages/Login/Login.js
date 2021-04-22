@@ -41,12 +41,12 @@ class Login extends Component {
         password: this.state.password,
       }),
     })
-      .then(response => response.json())
-      .then(response => {
-        if (response.MESSAGE === 'SUCCESS') {
+      .then(data => data.json())
+      .then(data => {
+        if (data.MESSAGE === 'SUCCESS') {
           alert('로그인 성공');
           this.props.history.push('/');
-          // localStorage.setItem('token', data.TOKEN);
+          localStorage.setItem('token', data.TOKEN);
         } else {
           alert('로그인 실패');
         }

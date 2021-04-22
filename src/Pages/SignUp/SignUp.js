@@ -106,12 +106,12 @@ class SignUp extends Component {
         phone_number: phoneNumber,
       }),
     })
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-        if (response.MESSAGE === 'SUCCESS') {
+      .then(data => data.json())
+      .then(data => {
+        if (data.MESSAGE === 'SUCCESS') {
           alert('로그인 성공');
           this.props.history.push('/');
+          localStorage.setItem('token', data.TOKEN);
         } else {
           alert('로그인 실패');
         }
