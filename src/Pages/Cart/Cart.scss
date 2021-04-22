@@ -76,11 +76,16 @@
                 margin-left: 30px;
 
                 h3 {
-                  font-size: 15px;
+                  margin-bottom: 10px;
+                  font-size: 13px;
+                  font-family: 'Gothic A1', sans-serif;
                 }
 
                 p {
+                  margin-bottom: 2px;
                   color: #908d8d;
+                  font-size: 10px;
+                  font-family: 'Gothic A1', sans-serif;
                 }
               }
             }
@@ -126,6 +131,14 @@
             border: 0;
           }
         }
+      }
+
+      .noProduct {
+        padding: 100px;
+        text-align: center;
+        color: #bdbdbd;
+        font-size: 20px;
+        font-family: 'Gothic A1', sans-serif;
       }
 
       .priceAll {

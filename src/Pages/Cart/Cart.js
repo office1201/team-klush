@@ -4,6 +4,7 @@ import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 
 import '../Cart/Cart.scss';
+import { check } from 'prettier';
 
 class Cart extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class Cart extends Component {
     this.state = {
       // product_quantity: 1,
       shoppingCarts: [],
-      checked: false,
+      checkBox: true,
     };
   }
 
@@ -51,6 +52,25 @@ class Cart extends Component {
 
     this.setState({
       shoppingCarts: newCart,
+    });
+  };
+
+  allCheckBox = () => {
+    const { shoppingCarts, checkBox } = this.state;
+    const cartList = shoppingCarts.map(cart => {
+      cart.isChecked = checkBox ? false : true;
+      return cart;
+    });
+    // this.setState({
+    //   checked: !this.state.checked,
+    // });
+  };
+
+  clickCheckBox = () => {
+    const { shoppingCarts } = this.state;
+    let bool = shoppingCarts.every(check => check.isChecked);
+    this.setState({
+      checkBox: bool,
     });
   };
 
@@ -97,8 +117,8 @@ class Cart extends Component {
                   <th>
                     <input
                       type="checkbox"
-                      onChange={this.clickCheckBox}
-                      checked={this.checked}
+                      onChange={this.allCheckBox}
+                      Checked={this.state.checkBox}
                     />
                   </th>
                   <th>제품 정보</th>
@@ -110,31 +130,37 @@ class Cart extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td rowSpan={shoppingCarts.length + 1}>배송비 2,500원</td>
-                </tr>
+                {shoppingCarts.length !== 0 && (
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td rowSpan={shoppingCarts.length + 1}>
+                      배송비 &#8361; 2,500
+                    </td>
+                  </tr>
+                )}
                 {shoppingCarts.length !== 0 &&
                   shoppingCarts.map((cart, index) => {
-                    // const prices = 1000 * cart.quantity;
-                    // console.log(prices);
-
                     return (
                       <tr>
                         <td>
-                          <input type="checkbox" />
+                          <input
+                            type="checkbox"
+                            id={index}
+                            Checked={this.state.checked}
+                          />
                         </td>
                         <td className="product">
                           <img src={cart.image} alt="" />
                           <div className="productInfo">
                             <h3>{cart.product_name}</h3>
-                            <p>{cart.option}</p>
+                            <p>{cart.option} g</p>
                             <p>{cart.sub_category_name}</p>
+                            <p>&#8361; {cart.product_price}</p>
                           </div>
                         </td>
                         <td className="quantity">
@@ -162,16 +188,19 @@ class Cart extends Component {
                             </span>
                           </li>
                         </td>
-                        <td>{1000 * cart.quantity} 원</td>
+                        <td>&#8361; {cart.product_price * cart.quantity}</td>
                         <td>-</td>
-                        <td>{1000 * cart.quantity} 원</td>
-                        {/* <td rowSpan={cart.length}>배송비 2,500원</td> */}
+                        <td>&#8361; {cart.product_price * cart.quantity}</td>
                       </tr>
                     );
                   })}
               </tbody>
             </table>
-            {/* {<div>장바구니에 담겨있는 상품이 없습니다.</div>} */}
+            {shoppingCarts.length === 0 && (
+              <div className="noProduct">
+                장바구니에 담겨있는 상품이 없습니다.
+              </div>
+            )}
             <div className="priceAll">
               <span>
                 총 {shoppingCarts.length} 개의 금액 {}원 + 배송비 2,500 원 = 총
