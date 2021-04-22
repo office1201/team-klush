@@ -39,6 +39,7 @@ class MainSectionRecommend extends Component {
 
   render() {
     const { recommendList, moveCarousel } = this.state;
+
     return (
       <section className="MainSectionRecommend">
         <div className="recommendWrapper">
