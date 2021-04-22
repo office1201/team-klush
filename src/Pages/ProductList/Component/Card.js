@@ -15,7 +15,7 @@ class Card extends Component {
     return (
       <div className="Cards">
         <li onClick={this.goToDetail} className={product.id}>
-          <img src={product.img_url} alt="제품 사진" />
+          <img src={product.image_url} alt="제품 사진" />
           <div className="conditionBox">
             {product.label.map(label => {
               return (

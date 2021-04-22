@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Card from './Component/Card';
-import Sort from './Component/Sort';
 import { PRODUCTS_API } from '../../config';
 import './ProductList.scss';
 
@@ -11,18 +10,41 @@ class ProductList extends Component {
     super();
     this.state = {
       productLists: [],
+      activeTab: 0,
     };
   }
 
   componentDidMount() {
-    fetch('/datas/productList.json')
+    const { activeTab } = this.state;
+    this.sortHandler(activeTab);
+  }
+
+  valueHandler = e => {
+    this.setState(
+      {
+        activeTab: Number(e.target.value),
+      },
+      () => this.sortHandler(this.state.activeTab)
+    );
+  };
+
+  sortHandler = activeTab => {
+    fetch(`${PRODUCTS_API}&${SORT[activeTab]}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          productLists: data,
+          productLists: data.results,
         });
       });
-  }
+    //Mockdata (서버 안될 시 사용)
+    // fetch('/datas/productList.json')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       productLists: data,
+    //     });
+    //   });
+  };
 
   render() {
     const { productLists } = this.state;
@@ -39,9 +61,9 @@ class ProductList extends Component {
               <div className="headName">
                 <h1>솝</h1>
                 <form>
-                  <select name="sorting">
-                    <option>낮은가격순</option>
-                    <option>높은가격순</option>
+                  <select name="sorting" onChange={this.valueHandler}>
+                    <option value="0">낮은가격순</option>
+                    <option value="1">높은가격순</option>
                   </select>
                 </form>
               </div>
@@ -75,3 +97,5 @@ class ProductList extends Component {
 }
 
 export default ProductList;
+
+const SORT = ['sort=productPrice_desc', 'sort=productPrice_asc'];
