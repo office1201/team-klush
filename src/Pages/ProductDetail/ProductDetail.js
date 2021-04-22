@@ -42,7 +42,7 @@ class ProductDetail extends Component {
     const { productData } = this.state;
     const MAPPING_OBJ = {
       0: <ProductInfo productData={productData} />,
-      1: <Comment />,
+      1: <Comment productData={productData} />,
       2: <Refund />,
     };
     return (

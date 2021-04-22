@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { CART_API } from '../../../config';
 import { Link } from 'react-router-dom';
 import './Goods.scss';
 
@@ -16,11 +17,10 @@ class Goods extends Component {
   goToCart = e => {
     this.props.history.push('/cart');
 
-    fetch('http://10.58.2.24:8000/orders/cart', {
+    fetch(`${CART_API}`, {
       method: 'POST',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.7IuNAZmKKK3y38HWLkdy2AicMtGil-1w2NIBlDRTAZE',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         product_id: e.target.dataset.idx,
@@ -44,7 +44,6 @@ class Goods extends Component {
     this.setState({
       imgId: idx,
     });
-    console.log(idx);
   };
 
   inputValue = e => {
@@ -77,7 +76,6 @@ class Goods extends Component {
   render() {
     const { productData } = this.props;
     const { product_quantity, imgId } = this.state;
-    console.log(productData);
     return (
       productData.length !== 0 && (
         <section className="Goods">

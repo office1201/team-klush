@@ -10,7 +10,6 @@ class Card extends Component {
 
   render() {
     const { product } = this.props;
-    // console.log(this.props.id);
 
     return (
       <div className="Cards">
@@ -32,7 +31,7 @@ class Card extends Component {
           <div className="prdInfo">
             <span className="Name">{product.name}</span>
             <span className="hashtag">{product.description}</span>
-            <span className="price">{product.price}</span>
+            <span className="price">&#8361;{product.price}</span>
           </div>
         </li>
       </div>

@@ -98,4 +98,5 @@ class ProductList extends Component {
 
 export default ProductList;
 
-const SORT = ['sort=productPrice_desc', 'sort=productPrice_asc'];
+// const SORT = ['sort=productPrice_desc', 'sort=productPrice_asc'];
+const SORT = ['ordering=priceAsc', 'ordering=priceDesc'];
