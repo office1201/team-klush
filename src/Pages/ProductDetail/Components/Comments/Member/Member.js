@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Comment from '../Comment';
+import { withRouter } from 'react-router-dom';
 import { COMMENT_API } from '../../../../../config';
 import { COMMENTS_API } from '../../../../../config';
 import { STAR_API } from '../../../../../config';
@@ -12,7 +13,6 @@ class Member extends Component {
     dates: '',
     commentsList: [],
     star: '',
-    // 별점 점수 쏴주기
     starRate: '',
   };
 
@@ -41,7 +41,7 @@ class Member extends Component {
     const { commentList, comment, starRate } = this.state;
     const date = [
       new Date().getFullYear(),
-      new Date().getMonth(),
+      new Date().getDay(),
       new Date().getDate(),
     ];
     this.setState(
@@ -79,7 +79,7 @@ class Member extends Component {
   };
 
   componentDidMount() {
-    fetch(`${COMMENTS_API}`)
+    fetch(`${COMMENTS_API}/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -231,4 +231,4 @@ class Member extends Component {
   }
 }
 
-export default Member;
+export default withRouter(Member);
