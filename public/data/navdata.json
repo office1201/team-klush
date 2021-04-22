@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "배쓰",
-      "sub_category": [
+      "sub_categories": [
         {
           "id": 1,
           "name": "배쓰 밤"
@@ -21,7 +21,7 @@
     {
       "id": 2,
       "name": "샤워",
-      "sub_category": [
+      "sub_categories": [
         {
           "id": 4,
           "name": "솝"
@@ -39,7 +39,7 @@
     {
       "id": 3,
       "name": "보디",
-      "sub_category": [
+      "sub_categories": [
         {
           "id": 7,
           "name": "배쓰 밤"
@@ -57,7 +57,7 @@
     {
       "id": 4,
       "name": "페이스",
-      "sub_category": [
+      "sub_categories": [
         {
           "id": 10,
           "name": "배쓰 밤"
@@ -75,7 +75,7 @@
     {
       "id": 5,
       "name": "헤어",
-      "sub_category": [
+      "sub_categories": [
         {
           "id": 13,
           "name": "배쓰 밤"
