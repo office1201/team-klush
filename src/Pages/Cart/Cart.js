@@ -67,14 +67,10 @@ class Cart extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/cartList.json', {
+    fetch(`${CART_API}`, {
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.k8V9fYZNF2rrxKOSuD6rGL2QgVd1XOW-HnQOPuHoyiQ',
+        Authorization: localStorage.getItem('token'),
       },
-      // headers: {
-      //   Authorization: localStorage.getItem('token'),
-      // },
     })
       .then(res => res.json())
       .then(data => {
