@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import { LOGIN_API } from '../../config';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 import '../../Styles/reset.scss';
 import '../../Styles/common.scss';
@@ -113,7 +114,9 @@ class Login extends Component {
                 <span>로그인</span>
               </button>
               <div className="loginMenu">
-                <button className="btnMenu">회원가입</button>
+                <Link to="/signUp">
+                  <button className="btnMenu">회원가입</button>
+                </Link>
                 <button className="btnMenu">아이디 찾기</button>
                 <button className="btnMenu">비밀번호 찾기</button>
               </div>
