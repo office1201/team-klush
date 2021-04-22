@@ -1,0 +1,232 @@
+[
+  {
+    "id": 1,
+    "name": "두비두밥 카스타드",
+    "description": "#부드러운 두유거품 #상큼한오렌지",
+    "price": 14000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--YphnGEMx--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2020/06/web_rhubarb_and_custard_soap_2020.jpg?itok=luFXFMfW",
+    "label": [{ "type": "new", "color": "green" }]
+  },
+  {
+    "id": 2,
+    "name": "삼프텍",
+    "description": "#숲속에 온듯 청량한 향기",
+    "price": 11000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--WyeSC--S--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2020/06/web_outback_mate_soap_2020.jpg?itok=GqwXYzEr",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "vegun", "color": "lightgreen" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "이클베이비봇",
+    "description": "#로봇과 함께하는 입욕",
+    "price": 6000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--vC_MR6TN--/c_fill,h_200,q_jpegmini,w_200/v1/products/main/3083.jpg?itok=ECMcrkKR",
+    "label": [{ "type": "best", "color": "purple" }]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "두비두밥 카스타드",
+    "description": "#부드러운 두유거품 #상큼한오렌지",
+    "price": 14000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--YphnGEMx--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2020/06/web_rhubarb_and_custard_soap_2020.jpg?itok=luFXFMfW",
+    "label": [{ "type": "new", "color": "green" }]
+  },
+  {
+    "id": 2,
+    "name": "삼프텍",
+    "description": "#숲속에 온듯 청량한 향기",
+    "price": 11000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--WyeSC--S--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2020/06/web_outback_mate_soap_2020.jpg?itok=GqwXYzEr",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "vegun", "color": "lightgreen" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "이클베이비봇",
+    "description": "#로봇과 함께하는 입욕",
+    "price": 6000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--vC_MR6TN--/c_fill,h_200,q_jpegmini,w_200/v1/products/main/3083.jpg?itok=ECMcrkKR",
+    "label": [{ "type": "best", "color": "purple" }]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "아보 굿 이스터",
+    "description": "#솝, 오래 쓸 수 있는",
+    "price": 23000,
+    "img_url": "https://res.cloudinary.com/lush/image/upload/s--h8PceQdz--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2021/02/web_avo_good_soap_2021.jpg?itok=Wm_D827U",
+    "label": [
+      { "type": "new", "color": "green" },
+      { "type": "best", "color": "purple" }
+    ]
+  }
+]
