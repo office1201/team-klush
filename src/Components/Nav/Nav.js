@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { withRouter } from 'react-router-dom';
+
 import CategoryProducts from './CategoryProducts/CategoryProducts';
 import CategoryIntroduce from './CategoryIntroduce/CategoryIntroduce';
 
@@ -13,6 +15,10 @@ class Nav extends Component {
       navList: [],
     };
   }
+
+  goToLogin = () => {
+    this.props.history.push(`/login`);
+  };
 
   componentDidMount() {
     fetch('/data/navdata.json')
@@ -53,7 +59,7 @@ class Nav extends Component {
             <li>
               <i className="fas fa-shopping-bag"></i>
             </li>
-            <li>
+            <li onClick={this.goToLogin}>
               <i class="fas fa-user-circle"></i>
             </li>
           </ul>
@@ -66,4 +72,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
