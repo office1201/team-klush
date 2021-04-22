@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { withRouter } from 'react-router-dom';
 
+import { MAIN_API } from '../../config';
+
 import CategoryProducts from './CategoryProducts/CategoryProducts';
 import CategoryIntroduce from './CategoryIntroduce/CategoryIntroduce';
 
@@ -21,7 +23,7 @@ class Nav extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/navdata.json')
+    fetch(`${MAIN_API}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

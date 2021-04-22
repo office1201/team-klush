@@ -8,7 +8,7 @@ import '../../../Styles/common.scss';
 
 class CategoryProducts extends Component {
   goToProductList = (mainIdx, subIdx) => {
-    if (mainIdx === 1 && subIdx === 0) {
+    if (mainIdx === 3 && subIdx === 1) {
       this.props.history.push(`/productList`);
     }
   };
