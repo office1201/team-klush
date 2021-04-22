@@ -67,7 +67,7 @@ class Cart extends Component {
   };
 
   componentDidMount() {
-    fetch(`${CART_API}`, {
+    fetch('/data/cartList.json', {
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.k8V9fYZNF2rrxKOSuD6rGL2QgVd1XOW-HnQOPuHoyiQ',
@@ -86,6 +86,11 @@ class Cart extends Component {
 
   render() {
     const { shoppingCarts } = this.state;
+    const total = shoppingCarts
+      ?.map(el => Number(el.product_price) * Number(el.quantity))
+      .reduce((acc, crr) => {
+        return Number(acc) + Number(crr);
+      }, 0);
     return (
       <div className="Cart">
         <Nav />
@@ -94,9 +99,9 @@ class Cart extends Component {
             <h1>SHOPPING CART</h1>
             <ul className="shoppingStep">
               <li>Cart</li>
-              <li>></li>
+              <li>&gt;</li>
               <li>Order</li>
-              <li>></li>
+              <li>&gt;</li>
               <li>Order confirmed</li>
             </ul>
           </div>
@@ -106,7 +111,7 @@ class Cart extends Component {
               <thead className="thread">
                 <tr>
                   <th>
-                    <input id="allCheck" type="checkbox" checked />
+                    <input id="allCheck" type="checkbox" />
                   </th>
                   <th>제품 정보</th>
                   <th>수량</th>
@@ -133,7 +138,7 @@ class Cart extends Component {
                     return (
                       <tr>
                         <td>
-                          <input type="checkbox" id={index} checked />
+                          <input type="checkbox" id={index} />
                         </td>
                         <td className="product">
                           <img src={cart.image} alt="" />
@@ -184,8 +189,8 @@ class Cart extends Component {
             )}
             <div className="priceAll">
               <span>
-                총 {shoppingCarts.length} 개의 금액 {}원 + 배송비 2,500 원 = 총
-                주문금액 {} 원
+                총 {shoppingCarts.length} 개의 금액 {total}원 + 배송비 2500 원 =
+                총 주문금액 {total + 2500} 원
               </span>
             </div>
           </div>
