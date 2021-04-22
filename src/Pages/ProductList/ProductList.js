@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
-import PrdLists from './Component/PrdLists';
+import Card from './Component/Card';
 import { PRODUCTS_API } from '../../config';
 import './ProductList.scss';
 
@@ -10,18 +10,41 @@ class ProductList extends Component {
     super();
     this.state = {
       productLists: [],
+      activeTab: 0,
     };
   }
 
   componentDidMount() {
-    fetch(`${PRODUCTS_API}`)
+    const { activeTab } = this.state;
+    this.sortHandler(activeTab);
+  }
+
+  valueHandler = e => {
+    this.setState(
+      {
+        activeTab: Number(e.target.value),
+      },
+      () => this.sortHandler(this.state.activeTab)
+    );
+  };
+
+  sortHandler = activeTab => {
+    fetch(`${PRODUCTS_API}&${SORT[activeTab]}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
           productLists: data.results,
         });
       });
-  }
+    //Mockdata (서버 안될 시 사용)
+    // fetch('/datas/productList.json')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       productLists: data,
+    //     });
+    //   });
+  };
 
   render() {
     const { productLists } = this.state;
@@ -37,6 +60,12 @@ class ProductList extends Component {
             <div className="headBox">
               <div className="headName">
                 <h1>솝</h1>
+                <form>
+                  <select name="sorting" onChange={this.valueHandler}>
+                    <option value="0">낮은가격순</option>
+                    <option value="1">높은가격순</option>
+                  </select>
+                </form>
               </div>
               <ul>
                 <li>솝(20)</li>
@@ -49,8 +78,8 @@ class ProductList extends Component {
             </div>
             <section>
               <ul>
-                {productLists.map(product => {
-                  return <PrdLists key={product.id} product={product} />;
+                {productLists.map((product, idx) => {
+                  return <Card key={idx} id={product.id} product={product} />;
                 })}
               </ul>
             </section>
@@ -68,3 +97,6 @@ class ProductList extends Component {
 }
 
 export default ProductList;
+
+// const SORT = ['sort=productPrice_desc', 'sort=productPrice_asc'];
+const SORT = ['ordering=priceAsc', 'ordering=priceDesc'];

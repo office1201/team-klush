@@ -1,12 +1,15 @@
 @import '../../../Styles/variable.scss';
 
-.PrdLists {
+.Cards {
   li {
     padding-bottom: 5px 30px 5px 5px;
     // border: 1px solid black;
     @extend %flex-all-center;
     flex-flow: column;
-
+    img {
+      width: 285px;
+      height: 285px;
+    }
     .conditionBox {
       width: 285px;
       height: 27px;
