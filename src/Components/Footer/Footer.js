@@ -25,7 +25,7 @@ class Footer extends Component {
               </ul>
             </div>
           </div>
-          <div className="footerSubscribe">
+          <div className="footerSubscribe korean">
             <form>
               <input type="text" placeholder="이메일 주소를 입력해 주세요." />
               <button>구독하기</button>

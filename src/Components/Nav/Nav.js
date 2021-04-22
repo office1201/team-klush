@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import { withRouter } from 'react-router-dom';
+
+import { MAIN_API } from '../../config';
+
 import CategoryProducts from './CategoryProducts/CategoryProducts';
 import CategoryIntroduce from './CategoryIntroduce/CategoryIntroduce';
 
@@ -14,8 +18,12 @@ class Nav extends Component {
     };
   }
 
+  goToLogin = () => {
+    this.props.history.push(`/login`);
+  };
+
   componentDidMount() {
-    fetch('/data/navdata.json')
+    fetch(`${MAIN_API}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -53,7 +61,7 @@ class Nav extends Component {
             <li>
               <i className="fas fa-shopping-bag"></i>
             </li>
-            <li>
+            <li onClick={this.goToLogin}>
               <i class="fas fa-user-circle"></i>
             </li>
           </ul>
@@ -66,4 +74,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
