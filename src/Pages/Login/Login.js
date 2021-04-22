@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
+import Footer from '../../Components/Footer/Footer';
 import { LOGIN_API } from '../../config';
 import './Login.scss';
 import '../../Styles/reset.scss';
@@ -18,8 +19,8 @@ class Login extends Component {
 
   inputIdValidator = email => {
     if (email === '') return '';
-    if (!email.includes('@')) return 'inputFail';
-    if (email.includes('@')) return 'inputSuccess';
+    if (email.length <= 2) return 'inputFail';
+    if (email.length > 3) return 'inputSuccess';
   };
 
   inputPwValidator = pw => {
@@ -29,7 +30,7 @@ class Login extends Component {
   };
 
   buttonValidator = (email, pw) => {
-    if (email.includes('@') && pw.length > 8) return 'btnSuccess';
+    if (email.length > 3 && pw.length > 8) return 'btnSuccess';
     return '';
   };
 
@@ -42,12 +43,12 @@ class Login extends Component {
         password: this.state.password,
       }),
     })
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-        if (response.MESSAGE === 'SUCCESS') {
+      .then(data => data.json())
+      .then(data => {
+        if (data.MESSAGE === 'SUCCESS') {
           alert('로그인 성공');
           this.props.history.push('/');
+          localStorage.setItem('token', data.TOKEN);
         } else {
           alert('로그인 실패');
         }
@@ -119,6 +120,7 @@ class Login extends Component {
             </form>
           </div>
         </section>
+        <Footer />
       </>
     );
   }
