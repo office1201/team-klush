@@ -38,7 +38,7 @@ class Nav extends Component {
       <div onMouseLeave={this.navMouseLeave} className="Nav">
         <nav>
           <h1>KLUSH</h1>
-          <ul>
+          <ul className="navMenu">
             <li onMouseOver={() => this.navMouseOver(1)}>제품</li>
             <li onMouseOver={() => this.navMouseOver(2)}>러쉬 소개</li>
             <li>매장 안내</li>
@@ -48,10 +48,10 @@ class Nav extends Component {
           </ul>
           <ul className="navIcon">
             <li>
-              <i class="fas fa-search"></i>
+              <i className="fas fa-search"></i>
             </li>
             <li>
-              <i class="fas fa-shopping-bag"></i>
+              <i className="fas fa-shopping-bag"></i>
             </li>
             <li>
               <i class="fas fa-user-circle"></i>

@@ -8,6 +8,7 @@
     grid-template-rows: repeat(2, 1fr);
     margin: 0 300px;
     height: 500px;
+    gap: 3px;
 
     div:nth-child(1) {
       grid-column: 1 / 3;
