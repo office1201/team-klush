@@ -16,20 +16,20 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
-    // fetch(`${PRDDETAIL_API}/${this.props.match.params.id}`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.setState({
-    //       productData: data.results[0],
-    //     });
-    //   });
-    fetch(`/datas/productData.json`)
+    fetch(`${PRDDETAIL_API}/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
           productData: data.results[0],
         });
       });
+    // fetch(`/datas/productData.json`)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       productData: data.results[0],
+    //     });
+    //   });
   }
 
   handleComponent = idx => {
@@ -40,6 +40,7 @@ class ProductDetail extends Component {
 
   render() {
     const { productData } = this.state;
+    console.log(productData.product_rate);
     const MAPPING_OBJ = {
       0: productData.product_hashtag && (
         <ProductInfo productData={productData} />
@@ -67,8 +68,14 @@ class ProductDetail extends Component {
           <div className="scoreContainer">
             <div className="average">
               <span>평가</span>
-              <span>5</span>
-              <span>★★★★★★</span>
+              <span>{productData.product_rate}</span>
+              <span>
+                {productData.product_rate === 5 ? '★★★★★' : null}
+                {productData.product_rate === 4 ? '★★★★' : null}
+                {productData.product_rate === 3 ? '★★★' : null}
+                {productData.product_rate === 2 ? '★★' : null}
+                {productData.product_rate === 1 ? '★' : null}
+              </span>
             </div>
             <div className="counter">
               <ScoreReview />
