@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import CategoryProducts from './CategoryProducts/CategoryProducts';
 import CategoryIntroduce from './CategoryIntroduce/CategoryIntroduce';
 
+import { MAIN_API } from '../../config';
+
 import '../Nav/Nav.scss';
 
 class Nav extends Component {
@@ -15,7 +17,7 @@ class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/navdata.json')
+    fetch(`${MAIN_API}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

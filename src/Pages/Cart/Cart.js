@@ -69,8 +69,12 @@ class Cart extends Component {
   componentDidMount() {
     fetch(`${CART_API}`, {
       headers: {
-        Authorization: localStorage.getItem('token'),
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.k8V9fYZNF2rrxKOSuD6rGL2QgVd1XOW-HnQOPuHoyiQ',
       },
+      // headers: {
+      //   Authorization: localStorage.getItem('token'),
+      // },
     })
       .then(res => res.json())
       .then(data => {
