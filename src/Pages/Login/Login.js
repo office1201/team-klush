@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
+import { LOGIN_API } from '../../config';
 import './Login.scss';
 import '../../Styles/reset.scss';
 import '../../Styles/common.scss';
@@ -34,7 +35,7 @@ class Login extends Component {
 
   goToMain = e => {
     e.preventDefault();
-    fetch(`{API_URL}`, {
+    fetch(`${LOGIN_API}`, {
       method: 'POST',
       body: JSON.stringify({
         login_id: this.state.email,
