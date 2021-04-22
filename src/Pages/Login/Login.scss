@@ -2,11 +2,12 @@
 
 .login {
   @extend %flex-all-center;
-  margin: 50px 0px;
+  margin: 100px 0px;
   padding-bottom: 50px;
 
   .loginContainer {
     padding: 50px 0px;
+    // margin-top: 50px;
     text-align: center;
 
     h2 {
