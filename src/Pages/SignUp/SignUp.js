@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SignUpList from './Components/SignUpList/SignUpList';
+import { SIGNUP_API } from '../../config';
 import './SignUp.scss';
 
 class SignUp extends Component {
@@ -94,7 +95,7 @@ class SignUp extends Component {
   checkLogin = e => {
     const { id, pw, username, nickname, emailAdress, phoneNumber } = this.state;
     e.preventDefault();
-    fetch('http://10.58.2.24:8000/users/signup', {
+    fetch(`${SIGNUP_API}`, {
       method: 'POST',
       body: JSON.stringify({
         account_name: id,

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { LOGIN_API } from '../../config';
 import './Login.scss';
 import '../../Styles/reset.scss';
 import '../../Styles/common.scss';
@@ -33,7 +34,7 @@ class Login extends Component {
 
   goToMain = e => {
     e.preventDefault();
-    fetch(`{API_URL}`, {
+    fetch(`${LOGIN_API}`, {
       method: 'POST',
       body: JSON.stringify({
         login_id: this.state.email,
@@ -42,10 +43,10 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         if (response.MESSAGE === 'SUCCESS') {
           alert('로그인 성공');
           this.props.history.push('/');
+          // localStorage.setItem('token', data.TOKEN);
         } else {
           alert('로그인 실패');
         }

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Comment from '../Comment';
+import { COMMENT_API } from '../../../../../config';
+import { COMMENTS_API } from '../../../../../config';
+import { STAR_API } from '../../../../../config';
 import './Member.scss';
 
 class Member extends Component {
@@ -8,11 +11,23 @@ class Member extends Component {
     commentList: [],
     dates: '',
     commentsList: [],
+    star: '',
+    // 별점 점수 쏴주기
+    starRate: '',
   };
 
   handleInput = e => {
     const { value } = e.target;
-    this.setState({ comment: value });
+    this.setState({
+      comment: value,
+    });
+  };
+
+  handleStar = e => {
+    const { value } = e.target;
+    this.setState({
+      starRate: value,
+    });
   };
 
   onSubmitClick = e => {
@@ -23,7 +38,7 @@ class Member extends Component {
   };
 
   handleAddComment = () => {
-    const { commentList, comment } = this.state;
+    const { commentList, comment, starRate } = this.state;
     const date = [
       new Date().getFullYear(),
       new Date().getMonth(),
@@ -34,25 +49,54 @@ class Member extends Component {
         commentList: [...commentList, { comment: comment }],
         comment: '',
         dates: date,
+        starRate: starRate,
       },
       () => {
         alert('추가되었습니다.');
+        fetch(`${COMMENT_API}`, {
+          method: 'post',
+          headers: {
+            Authorization: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.k8V9fYZNF2rrxKOSuD6rGL2QgVd1XOW-HnQOPuHoyiQ`,
+          },
+          body: JSON.stringify({
+            product_id: 11,
+            content: comment,
+          }),
+        }).then(res => res.json());
+
+        fetch(`${STAR_API}`, {
+          method: 'post',
+          headers: {
+            Authorization: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NX0.1k9n4j4bUGXO3owMyxQsbk6ZeRopHo6npFNM8Z4JP2U`,
+          },
+          body: JSON.stringify({
+            product_id: 10,
+            rate: starRate,
+          }),
+        }).then(res => res.json());
       }
     );
   };
-  // 통신
+
   componentDidMount() {
-    fetch(``)
+    fetch(`${COMMENTS_API}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
           commentsList: data.results,
         });
       });
+    fetch(`${STAR_API}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          star: data.result,
+        });
+      });
   }
 
   render() {
-    const { commentList, dates, commentsList } = this.state;
+    const { commentList, dates, commentsList, star } = this.state;
     return (
       <section>
         <div className="comment">
@@ -62,23 +106,49 @@ class Member extends Component {
             <div className="commentScore">
               <span>평가</span>
               <label>
-                <input type="checkbox" />
+                <input
+                  onClick={this.handleStar}
+                  value="5.00"
+                  className="radioBox"
+                  type="radio"
+                  name="star"
+                />
                 ★★★★★
               </label>
               <label>
-                <input type="checkbox" />
+                <input
+                  onClick={this.handleStar}
+                  value="4.00"
+                  type="radio"
+                  name="star"
+                />
                 ★★★★☆
               </label>
               <label>
-                <input type="checkbox" />
+                <input
+                  onClick={this.handleStar}
+                  value="3.00"
+                  type="radio"
+                  name="star"
+                />
                 ★★★☆☆
               </label>
               <label>
-                <input type="checkbox" />
+                <input
+                  onClick={this.handleStar}
+                  value="2.00"
+                  type="radio"
+                  name="star"
+                />
                 ★★☆☆☆
               </label>
               <label>
-                <input type="checkbox" />
+                <input
+                  onClick={this.handleStar}
+                  value="1.00"
+                  type="radio"
+                  name="star"
+                />
                 ★☆☆☆☆
               </label>
             </div>
@@ -102,8 +172,13 @@ class Member extends Component {
               </button>
             </div>
           </form>
+          {/* <Comment rate={commentsList} /> */}
+          {/* 1. 별점 */}
+          {/* {commentsList.map(comment => {
+            return <Comment rate={comment} />;
+          })} */}
           {commentsList.map(comment => {
-            return <Comment key={comment.id} comment={comment} />;
+            return <Comment commentList={comment} star={star} />;
           })}
           <div className="commentBoxes">
             {commentList.map(comment => {
@@ -113,7 +188,7 @@ class Member extends Component {
                     <div className="summary">
                       <div className="star">★★★★★</div>
                       <div className="date">
-                        <span>{`${dates[0]}.${dates[1]}.${dates[2]}.`}</span>
+                        <span>{`${dates[0]}-${dates[1]}-${dates[2]}`}</span>
                       </div>
                       <div className="buyer">
                         <span>네이버페이 구매자</span>
@@ -129,6 +204,26 @@ class Member extends Component {
                 </>
               );
             })}
+            <nav>
+              <ul className="commentPage">
+                <span className="commentFirstPage">1</span>
+                <li>
+                  <span>2</span>
+                </li>
+                <li>
+                  <span>3</span>
+                </li>
+                <li>
+                  <span>4</span>
+                </li>
+                <li>
+                  <span>5</span>
+                </li>
+                <li>
+                  <span>6</span>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </section>
