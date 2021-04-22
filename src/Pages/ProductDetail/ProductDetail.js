@@ -12,7 +12,7 @@ import './ProductDetail.scss';
 class ProductDetail extends Component {
   state = {
     currentId: 0,
-    productData: [],
+    productData: {},
   };
 
   componentDidMount() {
@@ -41,14 +41,16 @@ class ProductDetail extends Component {
   render() {
     const { productData } = this.state;
     const MAPPING_OBJ = {
-      0: <ProductInfo productData={productData} />,
-      1: <Comment productData={productData} />,
+      0: productData.product_hashtag && (
+        <ProductInfo productData={productData} />
+      ),
+      1: productData.product_hashtag && <Comment productData={productData} />,
       2: <Refund />,
     };
     return (
       <div className="ProductDetail">
         <Nav />
-        <Goods productData={productData} />
+        {productData.product_hashtag && <Goods productData={productData} />}
         <section className="plusReview">
           <div className="photoReview">
             <span>Plus Review</span>
