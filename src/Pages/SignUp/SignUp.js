@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { SIGNUP_API } from '../../config';
 import Nav from '../../Components/Nav/Nav';
+import Footer from '../../Components/Footer/Footer';
 import SignUpList from './Components/SignUpList/SignUpList';
 import './SignUp.scss';
 
@@ -30,8 +32,8 @@ class SignUp extends Component {
 
   idValidator = id => {
     if (id === '') return;
-    if (id !== '' && !id.includes('@')) return 'inputFail';
-    if (id.includes('@')) return 'inputSuccess';
+    if (id !== '' && id.includes('@')) return 'inputFail';
+    if (id.length > 2) return 'inputSuccess';
   };
 
   pwValidatorOne = pw => {
@@ -95,7 +97,7 @@ class SignUp extends Component {
   checkLogin = e => {
     const { id, pw, username, nickname, emailAdress, phoneNumber } = this.state;
     e.preventDefault();
-    fetch('http://10.58.2.24:8000/users/signup', {
+    fetch(`${SIGNUP_API}`, {
       method: 'POST',
       body: JSON.stringify({
         account_name: id,
@@ -106,14 +108,14 @@ class SignUp extends Component {
         phone_number: phoneNumber,
       }),
     })
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-        if (response.MESSAGE === 'SUCCESS') {
-          alert('로그인 성공');
+      .then(data => data.json())
+      .then(data => {
+        if (data.MESSAGE === 'SUCCESS') {
+          alert('회원가입 성공');
           this.props.history.push('/');
+          localStorage.setItem('token', data.TOKEN);
         } else {
-          alert('로그인 실패');
+          alert('회원가입 실패');
         }
       });
   };
@@ -204,6 +206,7 @@ class SignUp extends Component {
             </li>
           </form>
         </section>
+        <Footer />
       </>
     );
   }
