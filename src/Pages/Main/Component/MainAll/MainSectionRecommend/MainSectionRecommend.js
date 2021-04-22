@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { MAIN_API } from '../../../../../config';
+
 import './MainSectionRecommend.scss';
 
 class MainSectionRecommend extends Component {
@@ -12,7 +14,7 @@ class MainSectionRecommend extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/recommendList.json')
+    fetch(`${MAIN_API}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -22,7 +24,7 @@ class MainSectionRecommend extends Component {
   }
 
   goLeft = () => {
-    const { moveCarousel, recommendList } = this.state;
+    const { moveCarousel } = this.state;
     moveCarousel === 0
       ? this.setState({ moveCarousel: 0 })
       : this.setState({ moveCarousel: moveCarousel + 100 });
