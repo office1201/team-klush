@@ -1,0 +1,106 @@
+@import '../../Styles/variable.scss';
+@import '../../Styles/common.scss';
+
+.ProductDetail {
+  margin-top: 100px;
+  .plusReview {
+    width: 905px;
+    height: 233px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+    .photoReview {
+      width: 60%;
+      height: 188px;
+
+      span {
+        font-size: 20px;
+      }
+
+      .inner {
+        width: 100%;
+        height: 164px;
+        padding: 27px 20px 0;
+        border: 1px solid $light-gray;
+
+        p {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        .photoList {
+          width: 100%;
+          height: 100px;
+          position: relative;
+
+          .photoInfo {
+            padding-top: 20px;
+            font-size: 14px;
+            text-align: center;
+          }
+          .moreTxt {
+            font-size: 12px;
+            text-align: right;
+            position: absolute;
+            bottom: 0;
+            right: 5px;
+          }
+        }
+      }
+    }
+    .scoreContainer {
+      width: 40%;
+      height: 164px;
+      border: 1px solid $light-gray;
+      margin-top: 24px;
+      margin-left: 5px;
+      display: flex;
+    }
+    .average {
+      width: 50%;
+      height: 100%;
+      @extend %flex-all-center;
+      flex-flow: column;
+
+      :nth-child(1) {
+        font-size: 18px;
+      }
+
+      :nth-child(2) {
+        font-size: 45px;
+      }
+
+      :nth-child(3) {
+        font-size: 16px;
+      }
+    }
+    .counter {
+      margin-top: 20px;
+    }
+  }
+
+  .detailContainer {
+    width: 905px;
+    margin: 0 auto;
+
+    .tab {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 47px;
+
+      button {
+        font-size: 14px;
+        color: black;
+        background-color: white;
+        border: 1px solid black;
+      }
+
+      .Active {
+        font-size: 14px;
+        color: white;
+        background-color: black;
+      }
+    }
+  }
+}
