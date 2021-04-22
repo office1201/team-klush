@@ -3,11 +3,12 @@ import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Goods from './Goods/Goods';
 import ScoreReview from './Component/ScoreReview/ScoreReview';
-import Comment from './Component/Comments/Comment';
 import ProductInfo from './Component/ProductInfo/ProductInfo';
 import Refund from './Component/Refund/Refund';
+import Member from './Components/Comments/Member/Member';
 import { PRDDETAIL_API } from '../../config';
 import './ProductDetail.scss';
+import '../../Styles/common.scss';
 
 class ProductDetail extends Component {
   state = {
@@ -16,7 +17,7 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
-    console.log(`${PRDDETAIL_API}/${this.props.match.params.id}`);
+    window.scrollTo(0, 0);
     fetch(`${PRDDETAIL_API}/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
@@ -46,7 +47,7 @@ class ProductDetail extends Component {
       0: productData.product_hashtag && (
         <ProductInfo productData={productData} />
       ),
-      1: productData.product_hashtag && <Comment productData={productData} />,
+      1: productData.product_hashtag && <Member productData={productData} />,
       2: <Refund />,
     };
     return (
