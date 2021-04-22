@@ -54,7 +54,7 @@ class Nav extends Component {
               <i className="fas fa-shopping-bag"></i>
             </li>
             <li>
-              <i class="fas fa-user-circle"></i>
+              <i className="fas fa-user-circle"></i>
             </li>
           </ul>
         </nav>

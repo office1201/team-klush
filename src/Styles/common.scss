@@ -27,6 +27,12 @@ button {
   background-color: white;
 }
 
+.korean {
+  * {
+    font-family: 'Gothic A1', sans-serif;
+  }
+}
+
 %flex-center {
   display: flex;
   justify-content: center;
@@ -41,3 +47,5 @@ button {
 $light-gray: #d3d3d3;
 
 $dark-gray: #6d6d6d;
+
+$Gothic-font: 'Gothic A1', sans-serif;

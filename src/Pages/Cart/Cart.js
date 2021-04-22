@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 
+import { CART_API } from '../../config';
+
 import '../Cart/Cart.scss';
-import { check } from 'prettier';
 
 class Cart extends Component {
   constructor() {
     super();
     this.state = {
-      // product_quantity: 1,
       shoppingCarts: [],
       checkBox: true,
     };
@@ -57,28 +57,19 @@ class Cart extends Component {
 
   allCheckBox = () => {
     const { shoppingCarts, checkBox } = this.state;
-    const cartList = shoppingCarts.map(cart => {
-      cart.isChecked = checkBox ? false : true;
-      return cart;
+    const newCart = shoppingCarts.map(item => {
+      return { ...item, isChecked: true ? true : false };
     });
-    // this.setState({
-    //   checked: !this.state.checked,
-    // });
-  };
-
-  clickCheckBox = () => {
-    const { shoppingCarts } = this.state;
-    let bool = shoppingCarts.every(check => check.isChecked);
     this.setState({
-      checkBox: bool,
+      shoppingCart: newCart,
+      checkBox: !checkBox,
     });
   };
 
   componentDidMount() {
-    fetch('/data/cartList.json', {
+    fetch(`${CART_API}`, {
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.k8V9fYZNF2rrxKOSuD6rGL2QgVd1XOW-HnQOPuHoyiQ',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
@@ -90,22 +81,18 @@ class Cart extends Component {
   }
 
   render() {
-    const { product_quantity, shoppingCarts } = this.state;
+    const { shoppingCarts } = this.state;
     return (
       <div className="Cart">
         <Nav />
         <main>
-          <div className="shoppingCart">
+          <div className="shoppingCart korean">
             <h1>SHOPPING CART</h1>
             <ul className="shoppingStep">
-              <l1>Cart</l1>
-              <li>
-                <i className="fas fa-chevron-right"></i>
-              </li>
-              <l1>Order</l1>
-              <li>
-                <i className="fas fa-chevron-right"></i>
-              </li>
+              <li>Cart</li>
+              <li>></li>
+              <li>Order</li>
+              <li>></li>
               <li>Order confirmed</li>
             </ul>
           </div>
@@ -115,11 +102,7 @@ class Cart extends Component {
               <thead className="thread">
                 <tr>
                   <th>
-                    <input
-                      type="checkbox"
-                      onChange={this.allCheckBox}
-                      Checked={this.state.checkBox}
-                    />
+                    <input id="allCheck" type="checkbox" checked />
                   </th>
                   <th>제품 정보</th>
                   <th>수량</th>
@@ -138,9 +121,7 @@ class Cart extends Component {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td rowSpan={shoppingCarts.length + 1}>
-                      배송비 &#8361; 2,500
-                    </td>
+                    <td rowSpan={shoppingCarts.length + 1}>&#8361; 2,500</td>
                   </tr>
                 )}
                 {shoppingCarts.length !== 0 &&
@@ -148,15 +129,11 @@ class Cart extends Component {
                     return (
                       <tr>
                         <td>
-                          <input
-                            type="checkbox"
-                            id={index}
-                            Checked={this.state.checked}
-                          />
+                          <input type="checkbox" id={index} checked />
                         </td>
                         <td className="product">
                           <img src={cart.image} alt="" />
-                          <div className="productInfo">
+                          <div className="productInfo korean">
                             <h3>{cart.product_name}</h3>
                             <p>{cart.option} g</p>
                             <p>{cart.sub_category_name}</p>
