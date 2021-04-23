@@ -71,13 +71,7 @@ class ProductDetail extends Component {
             <div className="average">
               <span>평가</span>
               <span>{productData.product_rate}</span>
-              <span>
-                {productData.product_rate === 5 ? '★★★★★' : null}
-                {productData.product_rate === 4 ? '★★★★' : null}
-                {productData.product_rate === 3 ? '★★★' : null}
-                {productData.product_rate === 2 ? '★★' : null}
-                {productData.product_rate === 1 ? '★' : null}
-              </span>
+              <span>{Array(productData.product_rate).fill(`★`).join('')}</span>
             </div>
             <div className="counter">
               <ScoreReview />
