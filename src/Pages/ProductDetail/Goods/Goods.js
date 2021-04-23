@@ -54,6 +54,7 @@ class Goods extends Component {
   addValue = () => {
     const { product_quantity } = this.state;
     if (product_quantity > 19) {
+      alert('최대수량은 20개 입니다!');
       return;
     }
     this.setState({
@@ -64,6 +65,7 @@ class Goods extends Component {
   minusValue = () => {
     const { product_quantity } = this.state;
     if (product_quantity < 2) {
+      alert('최소수량은 1개 입니다!');
       return;
     }
     this.setState({
