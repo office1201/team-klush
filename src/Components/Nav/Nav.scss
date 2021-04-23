@@ -13,8 +13,12 @@
 
     h1 {
       margin-right: 150px;
+      min-width: 120px;
       color: white;
       letter-spacing: 2px;
+    }
+    &:hover {
+      cursor: pointer;
     }
 
     .navMenu {

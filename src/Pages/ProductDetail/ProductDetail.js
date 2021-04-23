@@ -86,7 +86,7 @@ class ProductDetail extends Component {
             </div>
           </div>
         </section>
-        <section className="detailContainer">
+        <section className="detailContainer korean">
           <div className="tab">
             {CATEGORY.map((category, idx) => {
               return (

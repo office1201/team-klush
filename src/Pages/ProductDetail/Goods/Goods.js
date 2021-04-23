@@ -78,7 +78,7 @@ class Goods extends Component {
     const { product_quantity, imgId } = this.state;
     return (
       productData.length !== 0 && (
-        <section className="Goods">
+        <section className="Goods korean">
           <div>
             <div className="mainImage">
               <img

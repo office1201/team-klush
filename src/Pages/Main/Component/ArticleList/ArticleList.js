@@ -24,7 +24,7 @@ class ArticleList extends Component {
       this.setState({
         carouselId: counter,
       });
-    }, 5000);
+    }, 3000);
   };
 
   componentDidMount() {
