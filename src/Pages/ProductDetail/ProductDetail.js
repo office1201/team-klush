@@ -42,7 +42,6 @@ class ProductDetail extends Component {
 
   render() {
     const { productData } = this.state;
-    console.log(productData.product_rate);
     const MAPPING_OBJ = {
       0: productData.product_hashtag && (
         <ProductInfo productData={productData} />

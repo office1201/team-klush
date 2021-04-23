@@ -5,7 +5,6 @@ import './Cards.scss';
 class Card extends Component {
   goToDetail = () => {
     this.props.history.push(`/products/${this.props.id}`);
-    console.log('아이디' + this.props.id);
   };
 
   render() {

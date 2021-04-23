@@ -29,9 +29,7 @@ class Goods extends Component {
       }),
     })
       .then(res => res.json())
-      .then(res => {
-        console.log(res);
-      });
+      .then(res => {});
   };
 
   handleModal = e => {
