@@ -56,7 +56,7 @@ class ProductList extends Component {
             <p className="mainTxt">SOAP</p>
             <p className="subTxt">향기를 머금은 거품으로 깨끗하게</p>
           </div>
-          <div className="view">
+          <div className="view korean">
             <div className="headBox">
               <div className="headName">
                 <h1>솝</h1>

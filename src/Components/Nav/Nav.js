@@ -22,6 +22,10 @@ class Nav extends Component {
     this.props.history.push(`/login`);
   };
 
+  goToLogin = () => {
+    this.props.history.push(`/`);
+  };
+
   componentDidMount() {
     fetch(`${MENU_API}`)
       .then(res => res.json())
@@ -45,7 +49,7 @@ class Nav extends Component {
     return (
       <div onMouseLeave={this.navMouseLeave} className="Nav">
         <nav>
-          <h1>KLUSH</h1>
+          <h1 onClick={this.goToLogin}>KLUSH</h1>
           <ul className="navMenu">
             <li onMouseOver={() => this.navMouseOver(1)}>제품</li>
             <li onMouseOver={() => this.navMouseOver(2)}>러쉬 소개</li>
