@@ -32,7 +32,7 @@ Back-end
 * GitHub
 * Trello
 
-# 기능구현
+# 💡 기능구현
 
 ## Front-end
 
